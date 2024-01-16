@@ -1,6 +1,8 @@
 import Header from "../../components/molecules/header";
+import TeamCard from "../../components/molecules/teamCard";
 import ValeurCard from "../../components/molecules/valeurCard";
 import EarsIcon from "../../icons/earsIcon";
+import teamMembers from "../../../utils/teamMembers.json";
 
 interface IProps {
   text: string;
@@ -86,6 +88,16 @@ const HomeView: React.FC<IProps> = ({ text }) => {
         >
           Notre équipe
         </h1>
+        <div className="membersContainer" style={{ padding: "5%" }}>
+          {teamMembers.map((member, index) => (
+            <TeamCard
+              key={index}
+              name={member.name}
+              description={member.description}
+              alignRight={member.alignRight}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
