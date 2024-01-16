@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import AvatarIcon from "../../icons/avatarIcon";
 import IconButton from "../atoms/iconButton";
 
@@ -17,9 +18,11 @@ const Header: React.FC = () => {
       }}
     >
       <div className="logoContainer" style={{ width: "10%" }}>
-        <h1 style={{ color: "#000", fontWeight: "normal", margin: 0 }}>
-          HorizonTech
-        </h1>
+        <Link style={{ textDecoration: "none" }} to="/">
+          <h1 style={{ color: "#000", fontWeight: "normal", margin: 0 }}>
+            HorizonTech
+          </h1>
+        </Link>
       </div>
       <ul
         className="linksContainer"
@@ -35,27 +38,29 @@ const Header: React.FC = () => {
           Notre histoire
         </Link>
         <div className="margin" style={{ marginRight: "15%" }} />
-        <Link
+        <HashLink
           style={{
             color: "#FF5B22",
             textDecoration: "none",
           }}
-          to="/chat"
+          to="/#NotreEquipe"
         >
           Notre équipe
-        </Link>
+        </HashLink>
         <div className="margin" style={{ marginRight: "15%" }} />
         <Link
           style={{
             color: "#FF5B22",
             textDecoration: "none",
           }}
-          to="/chat"
+          to="/metier-pedia"
         >
           Métier-Pédia
         </Link>
       </ul>
-      <IconButton icon={<AvatarIcon />} />
+      <Link to="/signup-signin">
+        <IconButton icon={<AvatarIcon />} />
+      </Link>
     </nav>
   );
 };

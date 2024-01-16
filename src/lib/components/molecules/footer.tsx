@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+// import { HashLink } from "react-router-hash-link";
 
 const Footer: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const Footer: React.FC = () => {
           padding: "0 0 20px 0",
         }}
       >
+        {/* Rajouter le hashlink quand la section sera terminée */}
         <Link
           style={{
             textDecoration: "none",
@@ -44,7 +46,7 @@ const Footer: React.FC = () => {
             minWidth: "15%",
             textAlign: "center",
           }}
-          to="/"
+          to="/metier-pedia"
         >
           Métier-Pédia
         </Link>
@@ -55,7 +57,7 @@ const Footer: React.FC = () => {
             minWidth: "15%",
             textAlign: "center",
           }}
-          to="/"
+          to="/signup-signin"
         >
           Connexion/Inscription
         </Link>

@@ -76,7 +76,11 @@ const HomeView: React.FC<IProps> = ({ text }) => {
           />
         </div>
       </div>
-      <div className="teamContainer" style={{ backgroundColor: "#FECDA6" }}>
+      <div
+        id="NotreEquipe"
+        className="teamContainer"
+        style={{ backgroundColor: "#FECDA6" }}
+      >
         {/* Le H1 doit être modifié par le component mainTitle */}
         <h1
           style={{
