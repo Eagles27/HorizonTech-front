@@ -3,11 +3,7 @@ import ValeurCard from "../../components/molecules/valeurCard";
 import EarsIcon from "../../icons/earsIcon";
 import TitleAccueil from "../../components/atoms/titleAccueil";
 
-interface IProps {
-  text: string;
-}
-
-const HomeView: React.FC<IProps> = ({ text }) => {
+const HomeView: React.FC = () => {
   return (
     <div
       className="appContainer"
@@ -49,7 +45,6 @@ const HomeView: React.FC<IProps> = ({ text }) => {
             color: "#FFFFFF",
           }}
         >
-          {text}
           Ensemble,
           <br />
           pensons l'avenir !
