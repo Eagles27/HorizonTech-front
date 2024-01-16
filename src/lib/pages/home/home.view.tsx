@@ -3,6 +3,7 @@ import TeamCard from "../../components/molecules/teamCard";
 import ValeurCard from "../../components/molecules/valeurCard";
 import EarsIcon from "../../icons/earsIcon";
 import teamMembers from "../../../utils/teamMembers.json";
+import Footer from "../../components/molecules/footer";
 
 interface IProps {
   text: string;
@@ -98,6 +99,9 @@ const HomeView: React.FC<IProps> = ({ text }) => {
             />
           ))}
         </div>
+      </div>
+      <div className="footerContainer" style={{ width: "100%", height: "30%" }}>
+        <Footer />
       </div>
     </div>
   );
