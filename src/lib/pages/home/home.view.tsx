@@ -1,4 +1,6 @@
 import Header from "../../components/molecules/header";
+import ValeurCard from "../../components/molecules/valeurCard";
+import EarsIcon from "../../icons/earsIcon";
 
 interface IProps {
   text: string;
@@ -22,7 +24,7 @@ const HomeView: React.FC<IProps> = ({ text }) => {
         style={{
           height: "90%",
           backgroundColor: "green",
-          display: "flex",
+          display: "block",
           alignItems: "center",
           justifyContent: "center",
         }}
@@ -45,13 +47,25 @@ const HomeView: React.FC<IProps> = ({ text }) => {
         className="teamContainer"
         style={{
           backgroundColor: "red",
-          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "space-around",
         }}
       >
-        <h1>Notre Equipe</h1>
+        <div className="containerExample">
+          <ValeurCard
+            title="Hello"
+            image={<EarsIcon />}
+            description="jdkdksksksskskskksskskskskskskskk"
+          />
+        </div>
+        <div className="containerExample">
+          <ValeurCard
+            title="Hello"
+            image={<EarsIcon />}
+            description="jdkdksksksskskskksskskskskskskskk"
+          />
+        </div>
       </div>
     </div>
   );
