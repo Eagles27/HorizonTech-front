@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import WhiteButton from "../atoms/whiteButton";
-import BlueButton from "../atoms/blueButton";
+import AvatarIcon from "../../icons/avatarIcon";
+import IconButton from "../atoms/iconButton";
 
 const Header: React.FC = () => {
   return (
@@ -10,38 +10,52 @@ const Header: React.FC = () => {
       style={{
         width: "100%",
         height: "100%",
-        color: "#109BD2",
+        color: "#FF5B22",
         display: "flex",
         alignItems: "center",
+        justifyContent: "space-around",
       }}
     >
       <div className="logoContainer" style={{ width: "10%" }}>
-        <h1 style={{ margin: 0 }}>LOGO</h1>
+        <h1 style={{ color: "#000", fontWeight: "normal", margin: 0 }}>
+          HorizonTech
+        </h1>
       </div>
-      <ul className="linksContainer" style={{ width: "60%", display: "flex" }}>
-        <Link style={{ color: "#109BD2", textDecoration: "none" }} to="/">
-          Accueil
+      <ul
+        className="linksContainer"
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          width: "55%",
+          fontWeight: "400",
+          fontSize: "16px",
+        }}
+      >
+        <Link style={{ color: "#FF5B22", textDecoration: "none" }} to="/">
+          Notre histoire
         </Link>
-        <div className="margin" style={{ marginRight: "5%" }} />
+        <div className="margin" style={{ marginRight: "15%" }} />
         <Link
           style={{
-            color: "#109BD2",
+            color: "#FF5B22",
             textDecoration: "none",
           }}
           to="/chat"
         >
-          Chat
+          Notre équipe
+        </Link>
+        <div className="margin" style={{ marginRight: "15%" }} />
+        <Link
+          style={{
+            color: "#FF5B22",
+            textDecoration: "none",
+          }}
+          to="/chat"
+        >
+          Métier-Pédia
         </Link>
       </ul>
-      <div
-        className="buttonContainer"
-        style={{ width: "30%", display: "flex" }}
-      >
-        <WhiteButton text="Connexion" />
-        <div className="margin" style={{ marginRight: "5%" }} />
-        <BlueButton text="Inscription" />
-        <div className="margin" style={{ marginLeft: "2%" }} />
-      </div>
+      <IconButton icon={<AvatarIcon />} />
     </nav>
   );
 };

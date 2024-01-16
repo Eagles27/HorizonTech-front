@@ -16,7 +16,13 @@ const HomeView: React.FC<IProps> = ({ text }) => {
         overflowY: "scroll",
       }}
     >
-      <div className="headerContainer" style={{ width: "100%", height: "10%" }}>
+      <div
+        className="headerContainer"
+        style={{
+          width: "100%",
+          height: "10%",
+        }}
+      >
         <Header />
       </div>
       <div
@@ -29,7 +35,7 @@ const HomeView: React.FC<IProps> = ({ text }) => {
           justifyContent: "center",
         }}
       >
-        <h1>VIDEO {text}</h1>
+        <h1 style={{ margin: 0 }}>VIDEO {text}</h1>
       </div>
       <div
         className="storyContainer"
@@ -44,7 +50,7 @@ const HomeView: React.FC<IProps> = ({ text }) => {
         <h1>Notre Histoire</h1>
       </div>
       <div
-        className="teamContainer"
+        className="valuesContainer"
         style={{
           backgroundColor: "red",
           display: "flex",
@@ -66,6 +72,20 @@ const HomeView: React.FC<IProps> = ({ text }) => {
             description="jdkdksksksskskskksskskskskskskskk"
           />
         </div>
+      </div>
+      <div className="teamContainer" style={{ backgroundColor: "#FECDA6" }}>
+        {/* Le H1 doit être modifié par le component mainTitle */}
+        <h1
+          style={{
+            paddingTop: "60px",
+            textAlign: "center",
+            margin: 0,
+            fontWeight: "600",
+            fontSize: "40px",
+          }}
+        >
+          Notre équipe
+        </h1>
       </div>
     </div>
   );
