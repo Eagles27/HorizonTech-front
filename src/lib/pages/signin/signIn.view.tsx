@@ -1,6 +1,7 @@
+import NavBarSign from "../../components/molecules/navBarSign";
 import Footer from "../../components/molecules/footer";
 import Header from "../../components/molecules/header";
-import SignInCardModel from "../../components/organisms/signInCard/signInCard.model";
+// import SignInCardModel from "../../components/organisms/signInCard/signInCard.model";
 
 const SignInView: React.FC = () => {
   return (
@@ -16,17 +17,39 @@ const SignInView: React.FC = () => {
       </div>
       <div
         className="contentContainer"
-        style={{ display: "flex", height: "70%" }}
+        style={{
+          display: "flex",
+          height: "70%",
+        }}
       >
-        <SignInCardModel />
         <div
-          className="imageContainer"
-          style={{ backgroundColor: "red", width: "40%" }}
-        ></div>
+          className="SignContainer"
+          style={{
+            backgroundColor: "white",
+            textAlign: "center",
+            marginTop: "110px",
+            width: "60%",
+          }}
+        >
+          <NavBarSign />
+        </div>
+        <div className="imageContainer" style={{ width: "40%" }}>
+          <img
+            src="ImgSignUpIn.jpg"
+            alt="Image de la bannière de la page d'accueil"
+            style={{
+              maxWidth: "100%",
+              maxHeight: "100%",
+              paddingLeft: "50px",
+              paddingTop: "30px",
+            }}
+          />
+        </div>
       </div>
+      <br />
       <div
         className="footerContainer"
-        style={{ width: "100%", height: "10%", paddingTop: "30px" }}
+        style={{ width: "100%", height: "30%", paddingTop: "30px" }}
       >
         <Footer />
       </div>

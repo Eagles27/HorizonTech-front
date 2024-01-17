@@ -16,8 +16,6 @@ const SimpleButton: React.FC<ButtonProps> = ({
   const [isHovered, setIsHovered] = useState(false);
 
   const styles = {
-    display: "flex",
-    alignItems: "center",
     justifyContent: "space-between",
     borderRadius: "3px",
     background: color,
@@ -31,7 +29,6 @@ const SimpleButton: React.FC<ButtonProps> = ({
     lineHeight: "150%",
     letterSpacing: "-0.12px",
     transition: "background 0.3s ease",
-    width: "100%",
   };
 
   const buttonBackground = isHovered ? "#272727" : color;
