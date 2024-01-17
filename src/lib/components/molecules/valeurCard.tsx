@@ -28,7 +28,7 @@ const ValeurCard: React.FC<IvaleurCardProps> = ({
           {title}
         </h1>
       </div>
-      <div className="descriptionContainer" style={{ padding: "0 20%" }}>
+      <div className="descriptionContainer" style={{ padding: "0 10%" }}>
         <p
           style={{ fontSize: "12px", textAlign: "center", color: "#000000A6" }}
         >
