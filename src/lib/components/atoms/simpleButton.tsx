@@ -2,37 +2,44 @@ import { useState } from "react";
 
 interface ButtonProps {
   text: string;
+  color?: string;
+  padding?: string;
   onClick?: () => void;
 }
 
-const WhiteButton: React.FC<ButtonProps> = ({ text, onClick }) => {
+const SimpleButton: React.FC<ButtonProps> = ({
+  text,
+  onClick,
+  color = "#FF5B22",
+  padding = "8px 12px",
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    borderRadius: "10px",
-    padding: "8px 12px",
-    border: "2px solid #109BD2",
+    borderRadius: "3px",
+    background: color,
+    padding: padding,
+    border: "none",
     cursor: "pointer",
+    color: "#fff",
     fontSize: "12px",
-    fontFamily: "Poppins",
     fontStyle: "normal",
     fontWeight: 500,
     lineHeight: "150%",
     letterSpacing: "-0.12px",
-    transition: "background 0.2s ease",
+    transition: "background 0.3s ease",
     width: "100%",
   };
 
-  const buttonBackground = isHovered ? "#109BD2" : "none";
-  const fontColor = isHovered ? "white" : "#109BD2";
+  const buttonBackground = isHovered ? "#272727" : color;
 
   return (
     <button
       type="button"
-      style={{ ...styles, background: buttonBackground, color: fontColor }}
+      style={{ ...styles, background: buttonBackground }}
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -42,4 +49,4 @@ const WhiteButton: React.FC<ButtonProps> = ({ text, onClick }) => {
   );
 };
 
-export default WhiteButton;
+export default SimpleButton;
