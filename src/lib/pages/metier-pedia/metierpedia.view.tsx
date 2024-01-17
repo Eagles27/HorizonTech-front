@@ -2,7 +2,7 @@ import SimpleButton from "../../components/atoms/simpleButton";
 import TitleAccueil from "../../components/atoms/titleAccueil";
 import Footer from "../../components/molecules/footer";
 import Header from "../../components/molecules/header";
-import TextInput from "../../components/molecules/textInput";
+import TextInput from "../../components/atoms/textInput";
 
 const MetierPediaView: React.FC = () => {
   return (
