@@ -5,11 +5,11 @@ import EarsIcon from "../../icons/earsIcon";
 import HeartIcon from "../../icons/heartIcon";
 import SearchCheckIcon from "../../icons/searchCheckIcon";
 import UserRoundIcon from "../../icons/userRoundIcon";
-import TitleCard from "../../components/atoms/blacktitle";
 import MissionSection from "../../components/molecules/missionsection";
 import teamMembers from "../../../utils/teamMembers.json";
 import Footer from "../../components/molecules/footer";
 import TitleAccueil from "../../components/atoms/titleAccueil";
+import BanerHome from "../../components/molecules/banerHome";
 
 const HomeView: React.FC = () => {
   return (
@@ -40,31 +40,10 @@ const HomeView: React.FC = () => {
           justifyContent: "left",
         }}
       >
-        {/* Image de la bannière  */}
-        <img
-          src="bannerImg.png"
-          alt="Image de la bannière de la page d'accueil"
-          style={{ maxWidth: "100%", maxHeight: "100%", paddingTop: "35px" }}
-        />
-
-        {/* Texte à coté de l'image  */}
-
-        <h1
-          style={{
-            marginLeft: "20px",
-            fontSize: "40px",
-            fontStyle: "normal",
-            fontWeight: 600,
-            lineHeight: "normal",
-            color: "#FFFFFF",
-          }}
-        >
-          Ensemble,
-          <br />
-          pensons l'avenir !
-        </h1>
+        <BanerHome />
       </div>
       <div
+        id="QuiSommesNous"
         className="QuisommesnousContainer"
         style={{
           minHeight: "40%",
@@ -74,8 +53,7 @@ const HomeView: React.FC = () => {
           alignItems: "center",
           textAlign: "center",
           width: 600,
-          margin: "0 auto",
-          padding: "20px",
+          margin: "50px auto",
         }}
       >
         <TitleAccueil title="Qui sommes-nous ?" />
@@ -86,6 +64,7 @@ const HomeView: React.FC = () => {
             fontWeight: 400,
             lineHeight: "normal",
             color: "rgba(0, 0, 0, 0.65)",
+            textAlign: "center",
           }}
         >
           Horizon Tech est une initiative passionnée qui s'engage à briser les
@@ -96,25 +75,13 @@ const HomeView: React.FC = () => {
         </p>
       </div>
       <div
-        className="storyContainer"
-        style={{
-          backgroundColor: "blue",
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <h1>Notre Histoire</h1>
-      </div>
-
-      <div
         className="valuesPageContainer"
         style={{
           backgroundColor: "#FECDA6",
+          padding: "40px 0",
         }}
       >
-        <TitleCard texte="Nos valeurs"></TitleCard>
+        <TitleAccueil title="Nos valeurs" />
         <div
           style={{
             display: "flex",
@@ -178,28 +145,18 @@ const HomeView: React.FC = () => {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
+          padding: "40px 0",
         }}
       >
-        <TitleCard texte="Notre Mission"></TitleCard>
+        <TitleAccueil title="Notre Mission" />
         <MissionSection />
       </div>
       <div
         id="NotreEquipe"
         className="teamContainer"
-        style={{ backgroundColor: "#FECDA6" }}
+        style={{ backgroundColor: "#FECDA6", padding: "40px 0" }}
       >
-        {/* Le H1 doit être modifié par le component mainTitle */}
-        <h1
-          style={{
-            paddingTop: "60px",
-            textAlign: "center",
-            margin: 0,
-            fontWeight: "600",
-            fontSize: "40px",
-          }}
-        >
-          Notre équipe
-        </h1>
+        <TitleAccueil title="Notre équipe" />
         <div className="membersContainer" style={{ padding: "5%" }}>
           {teamMembers.map((member, index) => (
             <TeamCard
@@ -211,7 +168,10 @@ const HomeView: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="footerContainer" style={{ width: "100%", height: "30%" }}>
+      <div
+        className="footerContainer"
+        style={{ width: "100%", height: "30%", paddingTop: "40px" }}
+      >
         <Footer />
       </div>
     </div>

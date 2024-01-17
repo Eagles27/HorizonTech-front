@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-// import { HashLink } from "react-router-hash-link";
+import { HashLink } from "react-router-hash-link";
 
 const Footer: React.FC = () => {
   return (
-    <nav
+    <footer
       className="navbar"
       style={{
         width: "100%",
@@ -27,18 +27,17 @@ const Footer: React.FC = () => {
           padding: "0 0 20px 0",
         }}
       >
-        {/* Rajouter le hashlink quand la section sera terminée */}
-        <Link
+        <HashLink
           style={{
             textDecoration: "none",
             color: "black",
             minWidth: "15%",
             textAlign: "center",
           }}
-          to="/"
+          to="/#QuiSommesNous"
         >
           Notre Histoire
-        </Link>
+        </HashLink>
         <Link
           style={{
             textDecoration: "none",
@@ -63,7 +62,7 @@ const Footer: React.FC = () => {
         </Link>
       </ul>
       <p style={{ fontSize: "12px" }}>2024 - HorizonTech</p>
-    </nav>
+    </footer>
   );
 };
 

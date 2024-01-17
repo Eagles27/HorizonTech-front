@@ -7,14 +7,13 @@ const MissionSection: React.FC = () => {
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
-        width: "80%",
+        width: "100%",
       }}
     >
       <div
         className="MissionContextContainer"
         style={{
-          width: "50vw",
-          height: "50vh",
+          width: "60%",
           color: "#000000A6",
           textAlign: "justify",
         }}
@@ -40,7 +39,6 @@ const MissionSection: React.FC = () => {
           pour surmonter les défis propres à ce parcours.
         </p>
         <p>
-          {" "}
           Notre communauté chez Horizon Tech repose sur la conviction que la
           diversité des perspectives est essentielle pour stimuler l'innovation.
           En éliminant les obstacles qui freinent l'accès des jeunes femmes aux
@@ -48,10 +46,10 @@ const MissionSection: React.FC = () => {
           règne dans tous les laboratoires, bureaux et institutions académiques.
         </p>
       </div>
-      <div style={{ width: "15vw", marginRight: "10%" }}>
+      <div className="imageContainer" style={{}}>
         <img
-          src=".\..\target.png"
-          alt="Transparence"
+          src="target.png"
+          alt="Cible de mission"
           style={{ width: "100%" }}
         />
       </div>
