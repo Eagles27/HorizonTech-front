@@ -1,6 +1,9 @@
 import Header from "../../components/molecules/header";
+import TeamCard from "../../components/molecules/teamCard";
 import ValeurCard from "../../components/molecules/valeurCard";
 import EarsIcon from "../../icons/earsIcon";
+import teamMembers from "../../../utils/teamMembers.json";
+import Footer from "../../components/molecules/footer";
 import TitleAccueil from "../../components/atoms/titleAccueil";
 
 const HomeView: React.FC = () => {
@@ -13,7 +16,13 @@ const HomeView: React.FC = () => {
         overflowY: "scroll",
       }}
     >
-      <div className="headerContainer" style={{ width: "100%", height: "10%" }}>
+      <div
+        className="headerContainer"
+        style={{
+          width: "100%",
+          height: "10%",
+        }}
+      >
         <Header />
       </div>
       <div
@@ -59,14 +68,12 @@ const HomeView: React.FC = () => {
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
-
           width: 600,
           margin: "0 auto",
           padding: "20px",
         }}
       >
         <TitleAccueil title="Qui sommes-nous ?" />
-
         <p
           style={{
             fontSize: "15px",
@@ -96,7 +103,7 @@ const HomeView: React.FC = () => {
         <h1>Notre Histoire</h1>
       </div>
       <div
-        className="teamContainer"
+        className="valuesContainer"
         style={{
           backgroundColor: "red",
           display: "flex",
@@ -118,6 +125,37 @@ const HomeView: React.FC = () => {
             description="jdkdksksksskskskksskskskskskskskk"
           />
         </div>
+      </div>
+      <div
+        id="NotreEquipe"
+        className="teamContainer"
+        style={{ backgroundColor: "#FECDA6" }}
+      >
+        {/* Le H1 doit être modifié par le component mainTitle */}
+        <h1
+          style={{
+            paddingTop: "60px",
+            textAlign: "center",
+            margin: 0,
+            fontWeight: "600",
+            fontSize: "40px",
+          }}
+        >
+          Notre équipe
+        </h1>
+        <div className="membersContainer" style={{ padding: "5%" }}>
+          {teamMembers.map((member, index) => (
+            <TeamCard
+              key={index}
+              name={member.name}
+              description={member.description}
+              alignRight={member.alignRight}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="footerContainer" style={{ width: "100%", height: "30%" }}>
+        <Footer />
       </div>
     </div>
   );
