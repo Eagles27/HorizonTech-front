@@ -34,9 +34,12 @@ const Header: React.FC = () => {
           fontSize: "16px",
         }}
       >
-        <Link style={{ color: "#FF5B22", textDecoration: "none" }} to="/">
+        <HashLink
+          style={{ color: "#FF5B22", textDecoration: "none" }}
+          to="/#QuiSommesNous"
+        >
           Notre histoire
-        </Link>
+        </HashLink>
         <div className="margin" style={{ marginRight: "15%" }} />
         <HashLink
           style={{

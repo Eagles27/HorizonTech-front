@@ -43,6 +43,7 @@ const HomeView: React.FC = () => {
         <BanerHome />
       </div>
       <div
+        id="QuiSommesNous"
         className="QuisommesnousContainer"
         style={{
           minHeight: "40%",
