@@ -64,30 +64,29 @@ const HomeView: React.FC<IProps> = ({ text }) => {
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
-          flex: "1 0 0",
+
           width: 600,
           margin: "0 auto",
           padding: "20px",
         }}
       >
         <TitleAccueil title="Qui sommes-nous ?" />
-        <div style={{}}>
-          <p
-            style={{
-              fontSize: "15px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "normal",
-              color: "rgba(0, 0, 0, 0.65)",
-            }}
-          >
-            Horizon Tech est une initiative passionnée qui s'engage à briser les
-            barrières pour l'intégration des jeunes femmes dans le monde
-            scientifique. Nous croyons en un avenir où l'égalité des genres
-            transcende toutes les disciplines, en particulier dans les domaines
-            scientifiques où les femmes sont souvent sous-représentées.
-          </p>
-        </div>
+
+        <p
+          style={{
+            fontSize: "15px",
+            fontStyle: "normal",
+            fontWeight: 400,
+            lineHeight: "normal",
+            color: "rgba(0, 0, 0, 0.65)",
+          }}
+        >
+          Horizon Tech est une initiative passionnée qui s'engage à briser les
+          barrières pour l'intégration des jeunes femmes dans le monde
+          scientifique. Nous croyons en un avenir où l'égalité des genres
+          transcende toutes les disciplines, en particulier dans les domaines
+          scientifiques où les femmes sont souvent sous-représentées.
+        </p>
       </div>
       <div
         className="storyContainer"
