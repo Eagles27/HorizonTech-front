@@ -5,6 +5,7 @@ import HeartIcon from "../../icons/heartIcon";
 import SearchCheckIcon from "../../icons/searchCheckIcon";
 import UserRoundIcon from "../../icons/userRoundIcon";
 import TitleCard from "../../components/atoms/blacktitle";
+import MissionSection from "../../components/molecules/missionsection";
 
 interface IProps {
   text: string;
@@ -116,52 +117,12 @@ const HomeView: React.FC<IProps> = ({ text }) => {
           backgroundColor: "#FFFFFF",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-around",
+          justifyContent: "center",
           flexDirection: "column",
-          padding: "20px",
         }}
       >
         <TitleCard texte="Notre Mission"></TitleCard>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-around",
-        }}
-      >
-        <div style={{ width: "50vw", height: "50vh" }}>
-          <p>
-            Notre mission chez Horizon Tech est claire : créer un pont entre les
-            femmes déjà établies dans le monde professionnel et les jeunes
-            filles pleines de potentiel qui aspirent à une carrière dans les
-            sciences. Nous sommes conscients que la représentation joue un rôle
-            crucial dans l'inspiration des générations futures, c'est pourquoi
-            notre plateforme web innovante vise à connecter des femmes
-            scientifiques accomplies avec des collégiennes, lycéennes et
-            étudiantes ambitieuses. Grâce à notre plateforme interactive, nous
-            offrons aux jeunes femmes la possibilité unique de s'engager dans
-            des dialogues significatifs avec des modèles féminins exceptionnels
-            dans le domaine scientifique. Ces interactions vont bien au-delà des
-            simples discussions sur les carrières scientifiques ; elles
-            permettent également de partager des expériences, des conseils
-            pratiques et d'offrir un soutien crucial pour surmonter les défis
-            propres à ce parcours. Notre communauté chez Horizon Tech repose sur
-            la conviction que la diversité des perspectives est essentielle pour
-            stimuler l'innovation. En éliminant les obstacles qui freinent
-            l'accès des jeunes femmes aux milieux scientifiques, nous
-            contribuons à créer un avenir où l'équité règne dans tous les
-            laboratoires, bureaux et institutions académiques.
-          </p>
-        </div>
-        <div style={{ width: "15vw", marginRight: "10%" }}>
-          <img
-            src=".\..\target.png"
-            alt="Transparence"
-            style={{ width: "100%" }}
-          />
-        </div>
+        <MissionSection />
       </div>
     </div>
   );
