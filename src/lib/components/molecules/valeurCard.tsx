@@ -24,10 +24,16 @@ const ValeurCard: React.FC<IvaleurCardProps> = ({
         {image}
       </div>
       <div className="titleContainer">
-        <h1 style={{ fontSize: "20px" }}>{title}</h1>
+        <h1 style={{ fontSize: "20px", margin: "0 5px", fontWeight: "600" }}>
+          {title}
+        </h1>
       </div>
-      <div className="descriptionContainer">
-        <p style={{ fontSize: "12px" }}>{description}</p>
+      <div className="descriptionContainer" style={{ padding: "0 20%" }}>
+        <p
+          style={{ fontSize: "12px", textAlign: "center", color: "#000000A6" }}
+        >
+          {description}
+        </p>
       </div>
     </div>
   );
