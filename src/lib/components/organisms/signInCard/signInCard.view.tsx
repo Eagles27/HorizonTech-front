@@ -1,16 +1,40 @@
+import React, { useState } from "react";
 import CheckBox from "../../atoms/checkBox";
 import SimpleButton from "../../atoms/simpleButton";
 import TextInput from "../../atoms/textInput";
 
+// Choisir meilleure méthode pour récup les données pour backend
+
 const SignInCardView: React.FC = () => {
-  const handleEmailInputChange = (value: string) => {
-    console.log("Nouvelle valeur de l'email:", value);
+  // Methode 1 : recup par groupe de données
+  const [formData, setFormData] = useState({
+    prenom: "",
+    nom: "",
+    adresseMail: "",
+    motdepasse: "",
+    confirmationmotdepasse: "",
+  });
+
+  const handleInputChange = (fieldName: string, value: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [fieldName]: value,
+    }));
   };
+  const handleSubmit = () => {
+    console.log("Données inscription:", formData);
+  };
+
+  // Methode 2 : recopier ça pour chaque donnée
+  // const handleEmailInputChange = (value: string) => {
+  //   console.log("Nouvelle valeur de l'email:", value);
+  // };
+
   return (
-    <div className="SignInCardComponent" style={{ width: "100%" }}>
+    <div className="SignInCardComponent">
       <div
         className="Checkbox"
-        style={{ paddingLeft: "145px", display: "flex" }}
+        style={{ paddingLeft: "150px", display: "flex" }}
       >
         <CheckBox text="Etudiante" />
         <CheckBox text="Marraine" />
@@ -18,42 +42,43 @@ const SignInCardView: React.FC = () => {
       <br />
       <TextInput
         placeholder="Prénom"
-        onInputChange={handleEmailInputChange}
+        onInputChange={(value) => handleInputChange("prenom", value)}
         marginRight="20px"
-        padding="11px 0px 10px 10px"
       />
       <TextInput
         placeholder="Nom de famille "
-        onInputChange={handleEmailInputChange}
-        padding="11px 95px 10px 10px"
+        onInputChange={(value) => handleInputChange("nom", value)}
+        width="30%"
       />
       <br />
       <br />
       <TextInput
         placeholder="Adresse mail "
-        onInputChange={handleEmailInputChange}
-        padding="11px 290px 10px 10px"
+        onInputChange={(value) => handleInputChange("adresseMail", value)}
+        width="56%"
       />
       <br />
       <br />
       <TextInput
         placeholder="Mot de passe"
-        onInputChange={handleEmailInputChange}
+        onInputChange={(value) => handleInputChange("motdepasse", value)}
         marginRight="20px"
-        padding="11px 50px 10px 10px"
         typemdp="password"
+        width="30%"
       />
       <TextInput
         placeholder="Confirmer le mot de passe"
-        onInputChange={handleEmailInputChange}
-        padding="11px 50px 10px 10px"
+        onInputChange={(value) =>
+          handleInputChange("confirmationmotdepasse", value)
+        }
         typemdp="password"
       />
       <br />
       <br />
       <br />
       <div className="Button" style={{ paddingRight: "400px" }}>
-        <SimpleButton text="M'inscrire" />
+        {/* mettre le handlesubmit ici si choisit méthode 1 */}
+        <SimpleButton text="M'inscrire" onClick={handleSubmit} />
       </div>
     </div>
   );

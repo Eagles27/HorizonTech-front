@@ -1,7 +1,6 @@
 import NavBarSign from "../../components/molecules/navBarSign";
 import Footer from "../../components/molecules/footer";
 import Header from "../../components/molecules/header";
-// import SignInCardModel from "../../components/organisms/signInCard/signInCard.model";
 
 const SignInView: React.FC = () => {
   return (

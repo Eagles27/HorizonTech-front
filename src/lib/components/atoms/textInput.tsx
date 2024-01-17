@@ -5,6 +5,7 @@ interface TextInputProps {
   customBorderRadius?: string;
   wasAnError?: boolean;
   padding?: string;
+  width?: string;
   marginRight?: string;
   typemdp?: "text" | "password";
   onInputChange: (value: string) => void;
@@ -15,7 +16,8 @@ const TextInput: React.FC<TextInputProps> = ({
   customBorderRadius = "2px",
   wasAnError = false,
   padding = "11px 12px",
-  marginRight = "",
+  width = "20%",
+  marginRight,
   typemdp = "text",
   onInputChange,
 }) => {
@@ -46,6 +48,7 @@ const TextInput: React.FC<TextInputProps> = ({
         outline: "none",
         padding,
         marginRight,
+        width,
       }}
       placeholder={placeholder}
     />

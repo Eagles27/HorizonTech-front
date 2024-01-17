@@ -2,23 +2,25 @@ import SimpleButton from "../../atoms/simpleButton";
 import TextInput from "../../atoms/textInput";
 
 const SignUpCardView: React.FC = () => {
+  // Voir quelle méthode on utilise avant de tout recopier
+  //Description méthode dans SignInCard.View
   const handleEmailInputChange = (value: string) => {
     console.log("Nouvelle valeur de l'email:", value);
   };
   return (
-    <div className="SignUpCardComponent" style={{ width: "100%" }}>
+    <div className="SignUpCardComponent">
       <br />
       <TextInput
         placeholder="Adresse mail "
         onInputChange={handleEmailInputChange}
-        padding="11px 290px 10px 10px"
+        width="56%"
       />
       <br />
       <br />
       <TextInput
         placeholder="Mot de passe"
         onInputChange={handleEmailInputChange}
-        padding="11px 290px 10px 10px"
+        width="56%"
         typemdp="password"
       />
 

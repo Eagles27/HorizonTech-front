@@ -16,13 +16,10 @@ const CheckBox: React.FC<CheckBoxProps> = ({ text, onClick }) => {
   };
 
   const containerStyles = {
+    //aligner texte et checkbox
     display: "flex",
     alignItems: "center",
     marginRight: "10px",
-  };
-
-  const checkboxStyles = {
-    cursor: "pointer",
   };
 
   const labelStyles = {
@@ -41,7 +38,6 @@ const CheckBox: React.FC<CheckBoxProps> = ({ text, onClick }) => {
         type="checkbox"
         checked={isChecked}
         onChange={handleCheckboxChange}
-        style={checkboxStyles}
       />
       <label style={labelStyles}>{text}</label>
     </div>
