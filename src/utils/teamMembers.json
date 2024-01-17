@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Clémence Bellet",
+    "description": "Etudiante à L’ECE Paris en M2 Product Engineering and Innovation",
+    "alignRight": false
+  },
+  {
+    "name": "Maxime Gillen",
+    "description": "Etudiant à l’ECE Paris en M2 Cybersécurité",
+    "alignRight": true
+  },
+  {
+    "name": "Audrey Berthelot",
+    "description": "Etudiante à L’ECE Paris en M2 Product Engineering and Innovation",
+    "alignRight": false
+  },
+  {
+    "name": "Edouard Oprea",
+    "description": "Etudiant à L’ECE Paris en M2 Product Engineering and Innovation",
+    "alignRight": true
+  },
+  {
+    "name": "Isabelle Chen",
+    "description": "Etudiante à l’ECE Paris en M2 Cybersécurité",
+    "alignRight": false
+  }
+]
