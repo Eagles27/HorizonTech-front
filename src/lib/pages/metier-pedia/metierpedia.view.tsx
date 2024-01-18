@@ -3,6 +3,9 @@ import TitleAccueil from "../../components/atoms/titleAccueil";
 import Footer from "../../components/molecules/footer";
 import Header from "../../components/molecules/header";
 import TextInput from "../../components/atoms/textInput";
+import MetierCard from "../../components/molecules/metierCard";
+import ButtonAndIconButton from "../../components/atoms/buttonAndIcon";
+import ArrowBottomIcon from "../../icons/arrowbottomIcon";
 
 const MetierPediaView: React.FC = () => {
   return (
@@ -57,13 +60,87 @@ const MetierPediaView: React.FC = () => {
           onInputChange={() => {}}
         />
         <div className="ButtonContainer" style={{ width: "20%" }}>
-          <SimpleButton text="Hello" padding="8px 0" />
+          <SimpleButton text="Rechercher" padding="8px 0" />
         </div>
       </div>
-      <div className="jobCardContainer">
+      <div
+        className="jobCardContainer"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          padding: "2% 0",
+          alignItems: "center",
+          maxWidth: "90%",
+          margin: "0 auto",
+        }}
+      >
         {/* Insérer un mapping de la card métier qui est à faire */}
-        Section MétierPédia
+        <MetierCard
+          image={
+            <img
+              src="doctorImg.png"
+              alt="Métier de médecin "
+              style={{ width: "100%" }}
+            />
+          }
+          title="Médecin"
+          description="Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies."
+          button
+        />
+
+        <MetierCard
+          image={
+            <img
+              src="doctorImg.png"
+              alt="Métier de médecin "
+              style={{ width: "100%" }}
+            />
+          }
+          title="Médecin"
+          description="Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies."
+          button
+        />
+
+        <MetierCard
+          image={
+            <img
+              src="doctorImg.png"
+              alt="Métier de médecin "
+              style={{ width: "100%" }}
+            />
+          }
+          title="Médecin"
+          description="Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies."
+          button
+        />
+        <MetierCard
+          image={
+            <img
+              src="doctorImg.png"
+              alt="Métier de médecin "
+              style={{ width: "100%" }}
+            />
+          }
+          title="Médecin"
+          description="Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies."
+          button
+        />
       </div>
+      <div
+        className="buttonNextContainer"
+        style={{ width: "8%", background: "#FFFFFF", margin: "0 auto" }}
+      >
+        <ButtonAndIconButton
+          text="Voir plus"
+          padding="8px 0"
+          color="#FFFFFF"
+          textColor="#FF5B22"
+          hoverColor="#FFA500"
+          borderColor="##FF5B22"
+          image={<ArrowBottomIcon />}
+        />
+      </div>
+
       <div
         className="footerContainer"
         style={{ width: "100%", height: "30%", paddingTop: "40px" }}
