@@ -1,8 +1,14 @@
+import { useState } from "react";
 import CheckBox from "../../atoms/checkBox";
 import SimpleButton from "../../atoms/simpleButton";
 import TextInput from "../../atoms/textInput";
 
 const SignUpCardView: React.FC = () => {
+  const [checkedOption, setCheckedOption] = useState<string | null>(null);
+
+  const handleCheck = (option: string) => {
+    setCheckedOption(option);
+  };
   return (
     <div
       className="SignInCardComponent"
@@ -15,8 +21,16 @@ const SignUpCardView: React.FC = () => {
       }}
     >
       <div className="checkBoxContainer" style={{ display: "flex" }}>
-        <CheckBox text="Etudiante" />
-        <CheckBox text="Marraine" />
+        <CheckBox
+          text="Etudiante"
+          checked={checkedOption === "Etudiante"}
+          onChange={() => handleCheck("Etudiante")}
+        />
+        <CheckBox
+          text="Marraine"
+          checked={checkedOption === "Marraine"}
+          onChange={() => handleCheck("Marraine")}
+        />
       </div>
       <div
         className="firstSectionComponent"

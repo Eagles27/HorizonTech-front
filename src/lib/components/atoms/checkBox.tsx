@@ -1,20 +1,10 @@
-import React, { useState } from "react";
-
 interface CheckBoxProps {
   text: string;
-  onClick?: () => void;
+  checked: boolean;
+  onChange: () => void;
 }
 
-const CheckBox: React.FC<CheckBoxProps> = ({ text, onClick }) => {
-  const [isChecked, setChecked] = useState(false);
-
-  const handleCheckboxChange = () => {
-    setChecked(!isChecked);
-    if (onClick) {
-      onClick();
-    }
-  };
-
+const CheckBox: React.FC<CheckBoxProps> = ({ text, checked, onChange }) => {
   const containerStyles = {
     //aligner texte et checkbox
     display: "flex",
@@ -29,16 +19,12 @@ const CheckBox: React.FC<CheckBoxProps> = ({ text, onClick }) => {
     fontWeight: 500,
     lineHeight: "normal",
     marginLeft: "3px",
-    color: isChecked ? "#FF5B22" : "#000000",
+    color: checked ? "#FF5B22" : "#000000",
   };
 
   return (
     <div style={containerStyles}>
-      <input
-        type="checkbox"
-        checked={isChecked}
-        onChange={handleCheckboxChange}
-      />
+      <input type="checkbox" checked={checked} onChange={onChange} />
       <label style={labelStyles}>{text}</label>
     </div>
   );
