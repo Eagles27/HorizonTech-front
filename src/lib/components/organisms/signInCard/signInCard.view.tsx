@@ -23,6 +23,7 @@ const SignInCardView: React.FC = () => {
         placeholder="Mot de passe"
         width="70%"
         onInputChange={() => {}}
+        typemdp="password"
       />
       <SimpleButton text="Me connecter" padding="8px 20px" />
     </div>

@@ -3,10 +3,16 @@ import Footer from "../../components/molecules/footer";
 import Header from "../../components/molecules/header";
 import SignInCardModel from "../../components/organisms/signInCard/signInCard.model";
 import SignUpCardModel from "../../components/organisms/signUpCard/signUpCard.model";
-import { useState } from "react";
 
-const SignInView: React.FC = () => {
-  const [signUpView, setSignUpView] = useState(true);
+interface SignInViewProps {
+  signUpView: boolean;
+  setSignUpView: (signUpView: boolean) => void;
+}
+
+const SignInView: React.FC<SignInViewProps> = ({
+  signUpView,
+  setSignUpView,
+}) => {
   return (
     <div
       className="appContainer"

@@ -1,14 +1,16 @@
-import { useState } from "react";
 import CheckBox from "../../atoms/checkBox";
 import SimpleButton from "../../atoms/simpleButton";
 import TextInput from "../../atoms/textInput";
 
-const SignUpCardView: React.FC = () => {
-  const [checkedOption, setCheckedOption] = useState<string | null>(null);
+interface SignUpCardViewProps {
+  checkedOption: string | null;
+  handleCheck: (option: string) => void;
+}
 
-  const handleCheck = (option: string) => {
-    setCheckedOption(option);
-  };
+const SignUpCardView: React.FC<SignUpCardViewProps> = ({
+  checkedOption,
+  handleCheck,
+}) => {
   return (
     <div
       className="SignInCardComponent"
@@ -56,11 +58,13 @@ const SignUpCardView: React.FC = () => {
         <TextInput
           placeholder="Mot de passe"
           width="60%"
+          typemdp="password"
           onInputChange={() => {}}
         />
         <TextInput
           placeholder="Confirmer le mot de passe"
           width="40%"
+          typemdp="password"
           onInputChange={() => {}}
         />
       </div>
