@@ -6,13 +6,14 @@ interface ButtonProps {
 
 const NavButton: React.FC<ButtonProps> = ({ text, onClick, isActive }) => {
   const styles = {
-    background: "#FFFFFF",
+    background: "none",
+    cursor: "pointer",
     color: isActive ? "#FF5B22" : "rgba(0, 0, 0, 0.50)",
     border: "none",
     borderBottom: isActive
       ? "1.5px solid #FF5B22"
       : "1.5px solid rgba(0, 0, 0, 0.50)",
-    width: "30%",
+    width: "50%",
     fontWeight: isActive ? 700 : 500,
   };
 

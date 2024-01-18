@@ -36,7 +36,6 @@ const TextInput: React.FC<TextInputProps> = ({
       value={inputValue}
       onChange={handleInputChange}
       style={{
-        color: "#A6A6A6",
         fontFamily: "Inter",
         fontSize: "12px",
         fontStyle: "normal",

@@ -1,35 +1,56 @@
+import CheckBox from "../../atoms/checkBox";
 import SimpleButton from "../../atoms/simpleButton";
 import TextInput from "../../atoms/textInput";
 
 const SignUpCardView: React.FC = () => {
-  // Voir quelle méthode on utilise avant de tout recopier
-  //Description méthode dans SignInCard.View
-  const handleEmailInputChange = (value: string) => {
-    console.log("Nouvelle valeur de l'email:", value);
-  };
   return (
-    <div className="SignUpCardComponent">
-      <br />
-      <TextInput
-        placeholder="Adresse mail "
-        onInputChange={handleEmailInputChange}
-        width="56%"
-      />
-      <br />
-      <br />
-      <TextInput
-        placeholder="Mot de passe"
-        onInputChange={handleEmailInputChange}
-        width="56%"
-        typemdp="password"
-      />
-
-      <br />
-      <br />
-      <br />
-      <div className="Button" style={{ paddingRight: "370px" }}>
-        <SimpleButton text="Me connecter" />
+    <div
+      className="SignInCardComponent"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        gap: "20px",
+        alignItems: "flex-start",
+      }}
+    >
+      <div className="checkBoxContainer" style={{ display: "flex" }}>
+        <CheckBox text="Etudiante" />
+        <CheckBox text="Marraine" />
       </div>
+      <div
+        className="firstSectionComponent"
+        style={{ display: "flex", gap: "15px", width: "100%" }}
+      >
+        <TextInput placeholder="Prénom" width="40%" onInputChange={() => {}} />
+        <TextInput placeholder="Nom" width="60%" onInputChange={() => {}} />
+      </div>
+      <div
+        className="SecondSectionComponent"
+        style={{ display: "flex", width: "100%" }}
+      >
+        <TextInput
+          placeholder="Adresse mail"
+          width="100%"
+          onInputChange={() => {}}
+        />
+      </div>
+      <div
+        className="ThirdSectionComponent"
+        style={{ display: "flex", gap: "15px", width: "100%" }}
+      >
+        <TextInput
+          placeholder="Mot de passe"
+          width="60%"
+          onInputChange={() => {}}
+        />
+        <TextInput
+          placeholder="Confirmer le mot de passe"
+          width="40%"
+          onInputChange={() => {}}
+        />
+      </div>
+      <SimpleButton text="M'inscrire" padding="8px 20px" />
     </div>
   );
 };

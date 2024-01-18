@@ -1,10 +1,17 @@
 import NavBarSign from "../../components/molecules/navBarSign";
 import Footer from "../../components/molecules/footer";
 import Header from "../../components/molecules/header";
+import SignInCardModel from "../../components/organisms/signInCard/signInCard.model";
+import SignUpCardModel from "../../components/organisms/signUpCard/signUpCard.model";
+import { useState } from "react";
 
 const SignInView: React.FC = () => {
+  const [signUpView, setSignUpView] = useState(true);
   return (
-    <div className="appContainer" style={{ height: "100vh" }}>
+    <div
+      className="appContainer"
+      style={{ height: "100vh", width: "100vw", overflowY: "scroll" }}
+    >
       <div
         className="headerContainer"
         style={{
@@ -18,29 +25,43 @@ const SignInView: React.FC = () => {
         className="contentContainer"
         style={{
           display: "flex",
-          height: "70%",
+          minHeight: "70%",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "40px",
         }}
       >
         <div
           className="SignContainer"
           style={{
-            backgroundColor: "white",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
             textAlign: "center",
-            marginTop: "110px",
-            width: "60%",
+            height: "100%",
+            width: "50%",
           }}
         >
-          <NavBarSign />
+          <NavBarSign
+            onValueChange={(signUpView) => setSignUpView(signUpView)}
+          />
+          {signUpView ? <SignUpCardModel /> : <SignInCardModel />}
         </div>
-        <div className="imageContainer" style={{ width: "40%" }}>
+        <div
+          className="imageContainer"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <img
             src="ImgSignUpIn.jpg"
             alt="Image de la bannière de la page d'accueil"
             style={{
-              maxWidth: "100%",
-              maxHeight: "100%",
-              paddingLeft: "50px",
-              paddingTop: "30px",
+              maxWidth: "70%",
+              maxHeight: "70%",
             }}
           />
         </div>
@@ -48,7 +69,7 @@ const SignInView: React.FC = () => {
       <br />
       <div
         className="footerContainer"
-        style={{ width: "100%", height: "30%", paddingTop: "30px" }}
+        style={{ width: "100%", height: "20%", paddingTop: "5px" }}
       >
         <Footer />
       </div>

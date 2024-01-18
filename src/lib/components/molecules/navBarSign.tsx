@@ -1,41 +1,35 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import NavButton from "../atoms/navButton";
-import SignInCardModel from "../../components/organisms/signInCard/signInCard.model";
-import SignUpCardModel from "../organisms/signUpCard/signUpCard.model";
 
-const NavBarSign: React.FC = () => {
-  const [showSignIn, setShowSignIn] = useState(true);
+interface NavBarSignProps {
+  onValueChange: (value: boolean) => void;
+}
 
-  const handleSignInClick = () => {
-    setShowSignIn(false);
+const NavBarSign: React.FC<NavBarSignProps> = ({ onValueChange }) => {
+  const [isActive, setIsActive] = useState(true);
+
+  const handleClick = (isActive: boolean) => {
+    setIsActive(isActive);
+    onValueChange(isActive);
   };
-
-  const handleSignUpClick = () => {
-    setShowSignIn(true);
-  };
-
   return (
-    <div className="NavBar">
+    <div
+      className="NavBar"
+      style={{
+        width: "100%",
+        marginBottom: "20px",
+      }}
+    >
       <NavButton
         text="Inscription"
-        onClick={handleSignUpClick}
-        isActive={showSignIn}
+        isActive={isActive}
+        onClick={() => handleClick(true)}
       />
       <NavButton
         text="Connexion"
-        onClick={handleSignInClick}
-        isActive={!showSignIn}
+        isActive={!isActive}
+        onClick={() => handleClick(false)}
       />
-
-      {showSignIn ? (
-        <p>
-          <SignInCardModel />
-        </p>
-      ) : (
-        <p>
-          <SignUpCardModel />
-        </p>
-      )}
     </div>
   );
 };
