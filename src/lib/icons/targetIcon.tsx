@@ -50,8 +50,8 @@ const TargetIcon: React.FC<IProps> = () => {
           y2="229.25"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF5B22" />
-          <stop offset="1" stop-color="#FF6860" />
+          <stop stopColor="#FF5B22" />
+          <stop offset="1" stopColor="#FF6860" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_209_7825"
@@ -61,8 +61,8 @@ const TargetIcon: React.FC<IProps> = () => {
           y2="180.125"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF5B22" />
-          <stop offset="1" stop-color="#FF6860" />
+          <stop stopColor="#FF5B22" />
+          <stop offset="1" stopColor="#FF6860" />
         </linearGradient>
       </defs>
     </svg>
