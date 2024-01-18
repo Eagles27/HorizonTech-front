@@ -161,6 +161,7 @@ const HomeView: React.FC = () => {
           {teamMembers.map((member, index) => (
             <TeamCard
               key={index}
+              avatar={member.avatar}
               name={member.name}
               description={member.description}
               alignRight={member.alignRight}
