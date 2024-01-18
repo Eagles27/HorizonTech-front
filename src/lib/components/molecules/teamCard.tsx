@@ -1,14 +1,12 @@
-import AvatarIcon from "../../icons/avatarIcon";
-
 interface TeamCardPrompt {
-  image?: React.ReactNode;
+  avatar: string;
   name: string;
   description: string;
   alignRight?: boolean;
 }
 
 const TeamCard: React.FC<TeamCardPrompt> = ({
-  image = <AvatarIcon size={100} />,
+  avatar,
   name,
   description,
   alignRight = false,
@@ -22,7 +20,7 @@ const TeamCard: React.FC<TeamCardPrompt> = ({
         flexDirection: alignRight ? "row-reverse" : "row",
       }}
     >
-      {image}
+      <img src={avatar} />
       <div
         className="textsContainer"
         style={{
