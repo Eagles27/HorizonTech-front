@@ -60,6 +60,7 @@ const MetierPediaView: React.FC = () => {
       >
         <TextInput
           placeholder="Le métier que je recherche..."
+          width="80%"
           onInputChange={() => {}}
         />
         <div className="ButtonContainer" style={{ width: "20%" }}>
