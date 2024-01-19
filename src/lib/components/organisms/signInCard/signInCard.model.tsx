@@ -3,9 +3,12 @@ import { useAppDispatch } from "../../../../store/store";
 import { loginUser } from "../../../../store/userSlice";
 import SignInCardView from "./signInCard.view";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const SignInCardModel: React.FC = () => {
   const dispatch = useAppDispatch();
+
+  const navigate = useNavigate();
 
   const [requiredFieldsMissing, setRequiredFieldsMissing] = useState({
     email: false,
@@ -35,10 +38,13 @@ const SignInCardModel: React.FC = () => {
       ) {
         throw new Error("Veuillez remplir tous les champs");
       }
-      dispatch(loginUser(formValues));
+      dispatch(loginUser(formValues)).then(() => {
+        navigate("/profile");
+      });
     } catch (e) {
       if (e instanceof Error) {
         toast.error(e.message);
+        setRequiredFieldsMissing({ email: false, password: false });
         return;
       }
       toast.error("Une erreur est survenue");

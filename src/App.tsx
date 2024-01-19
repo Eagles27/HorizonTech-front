@@ -25,6 +25,16 @@ const App: React.FC = () => {
       />
       <Route path="/metier-pedia" element={<MetierPediaModel />} />
       <Route path="/signup-signin" element={<SignInModel />} />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute
+            isAuthenticated={isAuth}
+            loginComponent={<SignInModel />}
+            outlet={<ProfileModel />}
+          />
+        }
+      />
     </Routes>
   );
 };
