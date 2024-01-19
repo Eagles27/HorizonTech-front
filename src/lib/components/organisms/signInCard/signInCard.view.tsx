@@ -1,7 +1,18 @@
+import { TUserPostBodyLogin } from "../../../../types/user";
 import SimpleButton from "../../atoms/simpleButton";
 import TextInput from "../../atoms/textInput";
 
-const SignInCardView: React.FC = () => {
+interface SignInCardViewProps {
+  handleSignIn: () => void;
+  setFormValues: (formValues: TUserPostBodyLogin) => void;
+  formValues: TUserPostBodyLogin;
+}
+
+const SignInCardView: React.FC<SignInCardViewProps> = ({
+  handleSignIn,
+  setFormValues,
+  formValues,
+}) => {
   return (
     <div
       className="SignUpCardComponent"
@@ -17,15 +28,21 @@ const SignInCardView: React.FC = () => {
         placeholder="Adresse mail"
         width="99%"
         padding="11px 0px 11px 11px"
-        onInputChange={() => {}}
+        onInputChange={(email) => setFormValues({ ...formValues, email })}
       />
       <TextInput
         placeholder="Mot de passe"
         width="70%"
-        onInputChange={() => {}}
+        onInputChange={(password) => {
+          setFormValues({ ...formValues, password: password });
+        }}
         typemdp="password"
       />
-      <SimpleButton text="Me connecter" padding="8px 20px" />
+      <SimpleButton
+        text="Me connecter"
+        padding="8px 20px"
+        onClick={handleSignIn}
+      />
     </div>
   );
 };
