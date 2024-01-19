@@ -8,9 +8,9 @@ const ProfileModel: React.FC = () => {
   const dispatch = useAppDispatch();
   const token = useSelector((state: TRootState) => state.userSlice.token);
   useEffect(() => {
-    dispatch(getUserInfo(token));
+    if (!token) dispatch(getUserInfo(token));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [token]);
   return <ProfileView />;
 };
 
