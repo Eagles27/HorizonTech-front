@@ -16,6 +16,10 @@ const SignInCardView: React.FC<SignInCardViewProps> = ({
   return (
     <form
       className="SignUpCardComponent"
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSignIn();
+      }}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -42,11 +46,7 @@ const SignInCardView: React.FC<SignInCardViewProps> = ({
         typemdp="password"
         autoFill="current-password"
       />
-      <SimpleButton
-        text="Me connecter"
-        padding="8px 20px"
-        onClick={handleSignIn}
-      />
+      <SimpleButton type="submit" text="Me connecter" padding="8px 20px" />
     </form>
   );
 };

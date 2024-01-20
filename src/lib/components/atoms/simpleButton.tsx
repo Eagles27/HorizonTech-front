@@ -4,6 +4,7 @@ interface ButtonProps {
   text: string;
   color?: string;
   padding?: string;
+  type?: "button" | "submit" | "reset";
   onClick?: () => void;
 }
 
@@ -12,6 +13,7 @@ const SimpleButton: React.FC<ButtonProps> = ({
   onClick,
   color = "#FF5B22",
   padding = "8px 12px",
+  type = "button",
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -38,7 +40,7 @@ const SimpleButton: React.FC<ButtonProps> = ({
 
   return (
     <button
-      type="button"
+      type={type}
       style={{ ...styles, background: buttonBackground }}
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
