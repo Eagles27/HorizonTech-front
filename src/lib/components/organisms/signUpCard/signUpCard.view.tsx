@@ -12,7 +12,7 @@ const SignUpCardView: React.FC<SignUpCardViewProps> = ({
   handleCheck,
 }) => {
   return (
-    <div
+    <form
       className="SignInCardComponent"
       style={{
         display: "flex",
@@ -38,14 +38,25 @@ const SignUpCardView: React.FC<SignUpCardViewProps> = ({
         className="firstSectionComponent"
         style={{ display: "flex", gap: "15px", width: "100%" }}
       >
-        <TextInput placeholder="Prénom" width="40%" onInputChange={() => {}} />
-        <TextInput placeholder="Nom" width="60%" onInputChange={() => {}} />
+        <TextInput
+          id="firstNameInput"
+          placeholder="Prénom"
+          width="40%"
+          onInputChange={() => {}}
+        />
+        <TextInput
+          id="lastNameInput"
+          placeholder="Nom"
+          width="60%"
+          onInputChange={() => {}}
+        />
       </div>
       <div
         className="SecondSectionComponent"
         style={{ display: "flex", width: "100%" }}
       >
         <TextInput
+          id="emailSignUpInput"
           placeholder="Adresse mail"
           width="100%"
           onInputChange={() => {}}
@@ -56,12 +67,14 @@ const SignUpCardView: React.FC<SignUpCardViewProps> = ({
         style={{ display: "flex", gap: "15px", width: "100%" }}
       >
         <TextInput
+          id="passwordSignUpInput"
           placeholder="Mot de passe"
           width="60%"
           typemdp="password"
           onInputChange={() => {}}
         />
         <TextInput
+          id="confirmPasswordSignUpInput"
           placeholder="Confirmer le mot de passe"
           width="40%"
           typemdp="password"
@@ -69,7 +82,7 @@ const SignUpCardView: React.FC<SignUpCardViewProps> = ({
         />
       </div>
       <SimpleButton text="M'inscrire" padding="8px 20px" />
-    </div>
+    </form>
   );
 };
 

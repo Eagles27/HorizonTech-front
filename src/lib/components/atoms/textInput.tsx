@@ -8,6 +8,8 @@ interface TextInputProps {
   width?: string;
   marginRight?: string;
   typemdp?: "text" | "password";
+  autoFill?: "current-password" | "username" | "new-password";
+  id?: string | undefined;
   onInputChange: (value: string) => void;
 }
 
@@ -19,6 +21,8 @@ const TextInput: React.FC<TextInputProps> = ({
   width = "20%",
   marginRight,
   typemdp = "text",
+  autoFill = "off",
+  id,
   onInputChange,
 }) => {
   const [inputValue, setInputValue] = useState("");
@@ -32,10 +36,11 @@ const TextInput: React.FC<TextInputProps> = ({
 
   return (
     <input
+      id={id}
       type={typemdp}
       value={inputValue}
       onChange={handleInputChange}
-      autoComplete={typemdp === "password" ? "current-password" : "off"}
+      autoComplete={autoFill}
       style={{
         fontFamily: "Inter",
         fontSize: "12px",
