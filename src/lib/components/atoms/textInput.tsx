@@ -32,7 +32,7 @@ const TextInput: React.FC<TextInputProps> = ({
     onInputChange(event.target.value);
   };
 
-  const border = wasAnError ? "1px solid #FF0000" : "1px solid #767676";
+  const border = wasAnError ? "1.5px solid #FF5B22" : "1px solid #767676";
 
   return (
     <input
