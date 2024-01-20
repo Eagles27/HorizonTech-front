@@ -64,7 +64,7 @@ const Header: React.FC = () => {
           Métier-Pédia
         </Link>
       </ul>
-      <Link to={isAuth ? "/profile" : "signup-signin"}>
+      <Link to={isAuth ? "/profile" : "/signup-signin"}>
         <IconButton icon={<AvatarIcon />} />
       </Link>
     </nav>

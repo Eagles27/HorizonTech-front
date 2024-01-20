@@ -7,10 +7,14 @@ import { useSelector } from "react-redux";
 const ProfileModel: React.FC = () => {
   const dispatch = useAppDispatch();
   const token = useSelector((state: TRootState) => state.userSlice.token);
+  const user = useSelector((state: TRootState) => state.userSlice.user);
   useEffect(() => {
-    if (!token) dispatch(getUserInfo(token));
+    if (user === null) {
+      dispatch(getUserInfo(token));
+      return;
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
+  }, [user]);
   return <ProfileView />;
 };
 
