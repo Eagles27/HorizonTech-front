@@ -14,8 +14,12 @@ const SignInCardView: React.FC<SignInCardViewProps> = ({
   formValues,
 }) => {
   return (
-    <div
+    <form
       className="SignUpCardComponent"
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSignIn();
+      }}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -25,25 +29,25 @@ const SignInCardView: React.FC<SignInCardViewProps> = ({
       }}
     >
       <TextInput
+        id="emailInput"
         placeholder="Adresse mail"
         width="99%"
         padding="11px 0px 11px 11px"
+        autoFill="username"
         onInputChange={(email) => setFormValues({ ...formValues, email })}
       />
       <TextInput
+        id="passwordInput"
         placeholder="Mot de passe"
         width="70%"
         onInputChange={(password) => {
           setFormValues({ ...formValues, password: password });
         }}
         typemdp="password"
+        autoFill="current-password"
       />
-      <SimpleButton
-        text="Me connecter"
-        padding="8px 20px"
-        onClick={handleSignIn}
-      />
-    </div>
+      <SimpleButton type="submit" text="Me connecter" padding="8px 20px" />
+    </form>
   );
 };
 
