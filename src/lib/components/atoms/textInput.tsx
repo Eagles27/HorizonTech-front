@@ -35,6 +35,7 @@ const TextInput: React.FC<TextInputProps> = ({
       type={typemdp}
       value={inputValue}
       onChange={handleInputChange}
+      autoComplete={typemdp === "password" ? "current-password" : "off"}
       style={{
         fontFamily: "Inter",
         fontSize: "12px",

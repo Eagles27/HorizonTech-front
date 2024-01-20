@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import AvatarIcon from "../../icons/avatarIcon";
 import IconButton from "../atoms/iconButton";
+import { useSelector } from "react-redux";
+import { TRootState } from "../../../store/store";
 
 const Header: React.FC = () => {
+  const isAuth = useSelector((state: TRootState) => state.userSlice.isAuth);
   return (
     <nav
       className="navbar"
@@ -61,7 +64,7 @@ const Header: React.FC = () => {
           Métier-Pédia
         </Link>
       </ul>
-      <Link to="/signup-signin">
+      <Link to={isAuth ? "/profile" : "/signup-signin"}>
         <IconButton icon={<AvatarIcon />} />
       </Link>
     </nav>
