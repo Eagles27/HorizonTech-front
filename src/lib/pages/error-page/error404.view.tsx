@@ -30,7 +30,7 @@ const Error404View: React.FC = () => {
         <div
           className="text404"
           style={{
-            color: "var(--Orange-vif, #FF5B22)",
+            color: "#FF5B22",
             fontFamily: "Inter",
             fontSize: "128px",
             fontStyle: "normal",
