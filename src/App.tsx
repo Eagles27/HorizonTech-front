@@ -25,7 +25,7 @@ const App: React.FC = () => {
         }
       />
       <Route path="/metier-pedia" element={<MetierPediaModel />} />
-      <Route path="/error404" element={<Error404Model />} />
+      <Route path="/*" element={<Error404Model />} />
       <Route path="/signup-signin" element={<SignInModel />} />
       <Route
         path="/profile"
