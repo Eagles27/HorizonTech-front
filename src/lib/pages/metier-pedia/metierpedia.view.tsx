@@ -41,7 +41,14 @@ const MetierPediaView: React.FC = () => {
         }}
       >
         <TitleAccueil title="Découvrir mon futur métier" />
-        <p style={{ color: "#000000BF", textAlign: "center", width: "63%" }}>
+        <p
+          style={{
+            color: "#000000BF",
+            textAlign: "center",
+            width: "60%",
+            fontSize: "1.1vw",
+          }}
+        >
           Notre métier pédia fonctionne comme une bibliothèque virtuelle,
           regorgeant de fiches métier exhaustives. Son objectif est de vous
           aider à explorer et comprendre le paysage professionnel d’aujourd’hui.
@@ -54,16 +61,20 @@ const MetierPediaView: React.FC = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          margin: "30px 100px",
+          justifyContent: "center",
+          margin: "30px 0",
           gap: "20px",
         }}
       >
         <TextInput
           placeholder="Le métier que je recherche..."
-          width="80%"
+          width="60%"
           onInputChange={() => {}}
         />
-        <div className="ButtonContainer" style={{ width: "20%" }}>
+        <div
+          className="ButtonContainer"
+          style={{ width: "20%", height: "100%" }}
+        >
           <SimpleButton text="Rechercher" padding="8px 0" />
         </div>
       </div>

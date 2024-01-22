@@ -24,6 +24,7 @@ const MissionSection: React.FC<ImissionSectionProps> = ({
           width: "60%",
           color: "#000000A6",
           textAlign: "justify",
+          fontSize: "1.1vw",
         }}
       >
         <p>

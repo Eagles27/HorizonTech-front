@@ -29,11 +29,13 @@ const TeamCard: React.FC<TeamCardPrompt> = ({
           textAlign: alignRight ? "right" : "left",
         }}
       >
-        <h2 style={{ fontSize: "20px", fontWeight: "600", margin: 0 }}>
+        <h2 style={{ fontSize: "1.7vw", fontWeight: "600", margin: 0 }}>
           {name}
         </h2>
         <div className="margin" style={{ marginTop: "5px" }} />
-        <p style={{ margin: 0, color: "#00000099" }}>{description}</p>
+        <p style={{ margin: 0, color: "#00000099", fontSize: "1.1vw" }}>
+          {description}
+        </p>
       </div>
     </div>
   );

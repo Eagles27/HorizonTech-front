@@ -37,9 +37,13 @@ const MetierPediaCard: React.FC<MetierPediaCardProps> = ({
           boxSizing: "border-box",
         }}
       >
-        <img src={image} alt={title} style={{ borderRadius: "5px" }} />
-        <h2 style={{ margin: "5px 0", fontSize: "18px" }}>{title}</h2>
-        <p style={{ margin: "5px 0", fontSize: "12px" }}>{description}</p>
+        <img
+          src={image}
+          alt={title}
+          style={{ borderRadius: "5px", objectFit: "cover" }}
+        />
+        <h2 style={{ margin: "5px 0", fontSize: "1.4vw" }}>{title}</h2>
+        <p style={{ margin: "5px 0", fontSize: "1vw" }}>{description}</p>
         <div
           className="buttonContainer"
           style={{ width: "40%", marginTop: "3px" }}

@@ -34,7 +34,7 @@ const Header: React.FC = () => {
           justifyContent: "flex-end",
           width: "55%",
           fontWeight: "400",
-          fontSize: "16px",
+          fontSize: "1.1vw",
         }}
       >
         <HashLink
