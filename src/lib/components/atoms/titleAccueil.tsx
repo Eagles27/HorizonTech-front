@@ -12,7 +12,14 @@ const TitleAccueil: React.FC<ItitleProps> = ({ title }) => {
   };
 
   return (
-    <div style={{ textAlign: "center", margin: "0 auto" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+      }}
+    >
       <h1 style={titleStyle}>{title}</h1>
     </div>
   );
