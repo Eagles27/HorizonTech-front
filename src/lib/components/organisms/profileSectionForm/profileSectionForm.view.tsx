@@ -8,6 +8,7 @@ interface ProfileSectionFormViewProps {
   formSubject: TForm;
   formResponse: TFormPostBody;
   setFormResponse: (formResponse: TFormPostBody) => void;
+  handleClick: () => void;
 }
 
 const ProfileSectionFormView: React.FC<ProfileSectionFormViewProps> = ({
@@ -16,6 +17,7 @@ const ProfileSectionFormView: React.FC<ProfileSectionFormViewProps> = ({
   formSubject,
   formResponse,
   setFormResponse,
+  handleClick,
 }) => {
   return (
     <div className="pageContent" style={{ height: "100%", width: "100%" }}>
@@ -65,6 +67,7 @@ const ProfileSectionFormView: React.FC<ProfileSectionFormViewProps> = ({
           formSubject={formSubject}
           formResponse={formResponse}
           setFormResponse={setFormResponse}
+          handleClick={handleClick}
         />
       </div>
     </div>

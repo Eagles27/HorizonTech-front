@@ -21,7 +21,7 @@ const initialState: IFormAnswerState = {
 
 export const postFormAnswer = createAsyncThunk<
   TFormResponse,
-  { formAnswer: TFormPostBody; headerValue: string },
+  { formAnswer: TFormPostBody; headerValue: string | undefined },
   { rejectValue: TError<TApiError> }
 >(
   "formAnswer/postFormAnswer",

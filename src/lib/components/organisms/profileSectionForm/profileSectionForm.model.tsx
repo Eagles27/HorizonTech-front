@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 import { TRootState, useAppDispatch } from "../../../../store/store";
 import { getFormSubject } from "../../../../store/formSubjectSlice";
 import { TFormPostBody } from "../../../../types/formAnswer";
+import { toast } from "react-toastify";
+import { postFormAnswer } from "../../../../store/formAnswerSlice";
+import { getUserInfo } from "../../../../store/userSlice";
 
 interface ProfileSectionFormProps {
   user: TUser | null;
@@ -20,6 +23,7 @@ const ProfileSectionFormModel: React.FC<ProfileSectionFormProps> = ({
   const formSubject = useSelector(
     (state: TRootState) => state.formSubjectSlice.subject,
   );
+  const token = useSelector((state: TRootState) => state.userSlice.token);
 
   const [formResponse, setFormResponse] = useState<TFormPostBody>({
     responses: formSubject?.map((subject) => ({
@@ -48,6 +52,37 @@ const ProfileSectionFormModel: React.FC<ProfileSectionFormProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
+  const checkRequiredFields = (): boolean => {
+    let requiredFieldsMissing = false;
+    formResponse.responses.forEach((response) => {
+      if (response.response === "") {
+        requiredFieldsMissing = true;
+      }
+    });
+    return requiredFieldsMissing;
+  };
+
+  const handleClick = () => {
+    if (checkRequiredFields()) {
+      toast.error("Veuillez répondre à toutes les questions");
+      return;
+    }
+    try {
+      dispatch(
+        postFormAnswer({ formAnswer: formResponse, headerValue: token }),
+      ).then(() => {
+        dispatch(getUserInfo(token));
+        //TO-DO Rajouter un dispatch pour récupérer les réponses du questionnaire
+      });
+    } catch (e) {
+      if (e instanceof Error) {
+        toast.error(e.message);
+        return;
+      }
+      toast.error("Une erreur est survenue");
+    }
+  };
+
   return (
     <ProfileSectionFormView
       title={title}
@@ -55,6 +90,7 @@ const ProfileSectionFormModel: React.FC<ProfileSectionFormProps> = ({
       formSubject={formSubject}
       formResponse={formResponse}
       setFormResponse={setFormResponse}
+      handleClick={handleClick}
     />
   );
 };

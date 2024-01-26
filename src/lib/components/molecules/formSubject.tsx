@@ -7,14 +7,15 @@ interface FormSubjectProps {
   formSubject: TForm;
   formResponse: TFormPostBody;
   setFormResponse: (formResponse: TFormPostBody) => void;
+  handleClick: () => void;
 }
 
 const FormSubject: React.FC<FormSubjectProps> = ({
   formSubject,
   formResponse,
   setFormResponse,
+  handleClick,
 }) => {
-  // TODO: Add logic to handle checkbox state
   return (
     <div
       className="formContainer"
@@ -61,7 +62,6 @@ const FormSubject: React.FC<FormSubjectProps> = ({
                   ...formResponse,
                   responses: newResponses,
                 });
-                console.log(formResponse);
               }}
             />
           ))}
@@ -81,7 +81,7 @@ const FormSubject: React.FC<FormSubjectProps> = ({
           text="Soumettre"
           width="20%"
           padding="12px 0px"
-          onClick={() => console.log(formResponse)}
+          onClick={handleClick}
         />
       </div>
     </div>
