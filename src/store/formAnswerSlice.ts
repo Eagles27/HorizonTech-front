@@ -50,7 +50,13 @@ export const postFormAnswer = createAsyncThunk<
 export const formAnswerSlice = createSlice({
   name: "formAnswer",
   initialState,
-  reducers: {},
+  reducers: {
+    resetFormAnswer: (state) => {
+      state.formAnswerId = { _id: "" };
+      state.loading = false;
+      state.error = false;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(postFormAnswer.pending, (state) => {
       state.loading = true;
@@ -66,5 +72,7 @@ export const formAnswerSlice = createSlice({
     });
   },
 });
+
+export const { resetFormAnswer } = formAnswerSlice.actions;
 
 export default formAnswerSlice.reducer;

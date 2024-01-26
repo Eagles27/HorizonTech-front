@@ -95,6 +95,7 @@ export const userSlice = createSlice({
       state.user = null;
       state.token = "";
       state.isAuth = false;
+      toast.success("Vous êtes bien déconnecté(e)");
     },
   },
   extraReducers: (builder) => {

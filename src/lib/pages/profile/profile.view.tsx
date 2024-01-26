@@ -19,7 +19,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ user }) => {
       </div>
       <div className="contentContainer">
         {user?.finishedSignup ? (
-          <ProfileSectionFinalModel />
+          <ProfileSectionFinalModel user={user} />
         ) : (
           <ProfileSectionFormModel user={user} />
         )}
