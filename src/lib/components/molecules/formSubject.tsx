@@ -1,12 +1,19 @@
 import { TForm } from "../../../types/form";
+import { TFormPostBody } from "../../../types/formAnswer";
 import CheckBox from "../atoms/checkBox";
 import SimpleButton from "../atoms/simpleButton";
 
 interface FormSubjectProps {
   formSubject: TForm;
+  formResponse: TFormPostBody;
+  setFormResponse: (formResponse: TFormPostBody) => void;
 }
 
-const FormSubject: React.FC<FormSubjectProps> = ({ formSubject }) => {
+const FormSubject: React.FC<FormSubjectProps> = ({
+  formSubject,
+  formResponse,
+  setFormResponse,
+}) => {
   // TODO: Add logic to handle checkbox state
   return (
     <div
@@ -18,20 +25,44 @@ const FormSubject: React.FC<FormSubjectProps> = ({ formSubject }) => {
         padding: "3%",
       }}
     >
-      {formSubject.map((subject, index) => (
-        <div className="formSectionContainer" key={index}>
+      {formSubject.map((subject, questionIndex) => (
+        <div className="formSectionContainer" key={questionIndex}>
           <h2 style={{ maxWidth: "79%", fontSize: "1.2vw" }}>
-            {index + 1}
+            {questionIndex + 1}
             {". "}
             {subject.question}
           </h2>
-          {subject.response.map((response, index) => (
+          {subject.response.map((response, responseIndex) => (
             <CheckBox
               labelSize="1vw"
-              key={index}
+              key={responseIndex}
               text={response}
-              checked={false}
-              onChange={() => console.log("Hello")}
+              checked={
+                formResponse.responses[questionIndex]?.response === response
+                  ? true
+                  : false
+              }
+              onChange={() => {
+                const newResponses = [...formResponse.responses];
+                const responseIndex = newResponses.findIndex(
+                  (r) => r.question === subject.question,
+                );
+
+                if (responseIndex !== -1) {
+                  newResponses[responseIndex].response = response;
+                } else {
+                  newResponses.push({
+                    question: subject.question,
+                    response: response,
+                  });
+                }
+
+                setFormResponse({
+                  ...formResponse,
+                  responses: newResponses,
+                });
+                console.log(formResponse);
+              }}
             />
           ))}
         </div>
@@ -50,7 +81,7 @@ const FormSubject: React.FC<FormSubjectProps> = ({ formSubject }) => {
           text="Soumettre"
           width="20%"
           padding="12px 0px"
-          onClick={() => console.log("Hello")}
+          onClick={() => console.log(formResponse)}
         />
       </div>
     </div>

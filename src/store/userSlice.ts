@@ -110,7 +110,7 @@ export const userSlice = createSlice({
     builder.addCase(signUpUser.rejected, (state) => {
       state.loading = false;
       state.error = true;
-      toast.error("Une erreure est survenue veuillez réessayer plus tard...");
+      toast.error("Une erreur est survenue veuillez réessayer plus tard...");
     });
     builder.addCase(loginUser.pending, (state) => {
       state.loading = true;

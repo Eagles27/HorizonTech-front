@@ -1,16 +1,21 @@
 import { TForm } from "../../../../types/form";
+import { TFormPostBody } from "../../../../types/formAnswer";
 import FormSubject from "../../molecules/formSubject";
 
 interface ProfileSectionFormViewProps {
   title: string;
   description: string;
   formSubject: TForm;
+  formResponse: TFormPostBody;
+  setFormResponse: (formResponse: TFormPostBody) => void;
 }
 
 const ProfileSectionFormView: React.FC<ProfileSectionFormViewProps> = ({
   title,
   description,
   formSubject,
+  formResponse,
+  setFormResponse,
 }) => {
   return (
     <div className="pageContent" style={{ height: "100%", width: "100%" }}>
@@ -56,7 +61,11 @@ const ProfileSectionFormView: React.FC<ProfileSectionFormViewProps> = ({
           alignItems: "center",
         }}
       >
-        <FormSubject formSubject={formSubject} />
+        <FormSubject
+          formSubject={formSubject}
+          formResponse={formResponse}
+          setFormResponse={setFormResponse}
+        />
       </div>
     </div>
   );

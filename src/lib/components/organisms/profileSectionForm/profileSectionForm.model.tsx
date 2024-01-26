@@ -4,6 +4,7 @@ import ProfileSectionFormView from "./profileSectionForm.view";
 import { useSelector } from "react-redux";
 import { TRootState, useAppDispatch } from "../../../../store/store";
 import { getFormSubject } from "../../../../store/formSubjectSlice";
+import { TFormPostBody } from "../../../../types/formAnswer";
 
 interface ProfileSectionFormProps {
   user: TUser | null;
@@ -19,6 +20,13 @@ const ProfileSectionFormModel: React.FC<ProfileSectionFormProps> = ({
   const formSubject = useSelector(
     (state: TRootState) => state.formSubjectSlice.subject,
   );
+
+  const [formResponse, setFormResponse] = useState<TFormPostBody>({
+    responses: formSubject?.map((subject) => ({
+      question: subject.question,
+      response: "",
+    })),
+  });
 
   useEffect(() => {
     dispatch(getFormSubject());
@@ -45,6 +53,8 @@ const ProfileSectionFormModel: React.FC<ProfileSectionFormProps> = ({
       title={title}
       description={description}
       formSubject={formSubject}
+      formResponse={formResponse}
+      setFormResponse={setFormResponse}
     />
   );
 };
