@@ -1,10 +1,11 @@
 import { TUser } from "../../../../types/user";
 import ArrowRightIcon from "../../../icons/arrowRightIcon";
+import WorkInProgressIcon from "../../../icons/workInProgessIcon";
 import ButtonWithIcon from "../../atoms/buttonWithIcon";
 import ProfileNavButton from "../../atoms/profileNavButton";
 import AvatarPresentation from "../../molecules/avatarPresentation";
-import ProfileFavorisMetierModel from "../profileFavorisMetier/profileFavorisMetier.model";
 import ProfileInformationsModel from "../profileInformations/profileInformations.model";
+import ProfileTrouveTaMarraineModel from "../profileTrouveTaMarraine/profileTrouveTaMarraine.model";
 
 interface ProfileSectionFinalViewProps {
   user: TUser;
@@ -89,7 +90,7 @@ const ProfileSectionFinalView: React.FC<ProfileSectionFinalViewProps> = ({
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "flex-start",
+          justifyContent: "center",
           backgroundColor: "#FFF",
           boxShadow: " 0px 1px 5px 0px rgba(0, 0, 0, 0.20)",
           minHeight: "80vh",
@@ -100,10 +101,10 @@ const ProfileSectionFinalView: React.FC<ProfileSectionFinalViewProps> = ({
           switch (linkActive) {
             case "Informations":
               return <ProfileInformationsModel />;
-            case "Favoris Fiche métier":
-              return <ProfileFavorisMetierModel />;
+            case "Trouve ta marraine":
+              return <ProfileTrouveTaMarraineModel />;
             default:
-              return <div>Page en construction</div>;
+              return <WorkInProgressIcon />;
           }
         })()}
       </div>
