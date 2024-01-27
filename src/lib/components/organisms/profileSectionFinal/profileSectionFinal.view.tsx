@@ -3,6 +3,8 @@ import ArrowRightIcon from "../../../icons/arrowRightIcon";
 import ButtonWithIcon from "../../atoms/buttonWithIcon";
 import ProfileNavButton from "../../atoms/profileNavButton";
 import AvatarPresentation from "../../molecules/avatarPresentation";
+import ProfileFavorisMetierModel from "../profileFavorisMetier/profileFavorisMetier.model";
+import ProfileInformationsModel from "../profileInformations/profileInformations.model";
 
 interface ProfileSectionFinalViewProps {
   user: TUser;
@@ -87,14 +89,23 @@ const ProfileSectionFinalView: React.FC<ProfileSectionFinalViewProps> = ({
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           backgroundColor: "#FFF",
           boxShadow: " 0px 1px 5px 0px rgba(0, 0, 0, 0.20)",
           minHeight: "80vh",
           width: "80%",
         }}
       >
-        Second Column
+        {(() => {
+          switch (linkActive) {
+            case "Informations":
+              return <ProfileInformationsModel />;
+            case "Favoris Fiche métier":
+              return <ProfileFavorisMetierModel />;
+            default:
+              return <div>Page en construction</div>;
+          }
+        })()}
       </div>
     </div>
   );

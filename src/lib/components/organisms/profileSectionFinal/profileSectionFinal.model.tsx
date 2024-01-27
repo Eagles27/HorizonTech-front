@@ -16,12 +16,20 @@ const ProfileSectionFinalModel: React.FC<ProfileSectionFinalModelProps> = ({
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const linksTitle = [
-    "Informations",
-    "Favoris Fiche métier",
-    "Trouve ta marraine",
-    "Mes discussions",
-  ];
+  const linksTitle =
+    user.role === "Etudiante"
+      ? [
+          "Informations",
+          "Favoris Fiche métier",
+          "Trouve ta marraine",
+          "Mes discussions",
+        ]
+      : [
+          "Informations",
+          "Demande en attente",
+          "Ecole proche de chez vous",
+          "Mes discussions",
+        ];
 
   const [linkActive, setLinkActive] = useState<string>("Informations");
 
