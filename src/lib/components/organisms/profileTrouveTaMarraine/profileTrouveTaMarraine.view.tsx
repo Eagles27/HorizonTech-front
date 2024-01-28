@@ -1,17 +1,61 @@
+import { TUser } from "../../../../types/user";
 import AcceptMatchIcon from "../../../icons/acceptMatchIcon";
+import ClockIcon from "../../../icons/clockIcon";
 import PassMatchIcon from "../../../icons/passMatchIcon";
 import IconButton from "../../atoms/iconButton";
+import SimpleButton from "../../atoms/simpleButton";
 import TitleCard from "../../atoms/titleCard";
 import AvatarPresentation from "../../molecules/avatarPresentation";
 
 interface ProfileTrouveTaMarraineViewProps {
   tempData: string[];
+  marraine: TUser | null;
+  handleNextMarraine: () => void;
+  handleAddMarraine: () => void;
+  handleRefreshMarraine: () => void;
 }
 
 const ProfileTrouveTaMarraineView: React.FC<
   ProfileTrouveTaMarraineViewProps
-> = ({ tempData }) => {
-  return (
+> = ({
+  tempData,
+  marraine,
+  handleNextMarraine,
+  handleAddMarraine,
+  handleRefreshMarraine,
+}) => {
+  return marraine === null ? (
+    <div
+      className="errorContent"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "20px",
+      }}
+    >
+      <ClockIcon />
+      <h2
+        style={{
+          margin: 0,
+          width: "60%",
+          color: "#FF5B22",
+          fontSize: "1.2vw",
+          fontWeight: 600,
+          textAlign: "center",
+        }}
+      >
+        En attendant que d’autres marraines arrivent... Clique sur le bouton
+        ci-dessous pour revoir celles déjà passées.
+      </h2>
+      <SimpleButton
+        text="Voir les marraines passées"
+        width="20%"
+        onClick={handleRefreshMarraine}
+      />
+    </div>
+  ) : (
     <div
       className="cardContent"
       style={{
@@ -31,9 +75,9 @@ const ProfileTrouveTaMarraineView: React.FC<
       }}
     >
       <AvatarPresentation
-        firstname="Mélissa"
-        lastname="Dupont"
-        role="Marraine"
+        firstname={marraine?.firstname || ""}
+        lastname={marraine?.lastname || ""}
+        role={marraine?.role || ""}
       />
       <div
         className="informationContainer"
@@ -57,8 +101,8 @@ const ProfileTrouveTaMarraineView: React.FC<
           gap: "10%",
         }}
       >
-        <IconButton icon={<PassMatchIcon />} />
-        <IconButton icon={<AcceptMatchIcon />} />
+        <IconButton icon={<PassMatchIcon />} onClick={handleNextMarraine} />
+        <IconButton icon={<AcceptMatchIcon />} onClick={handleAddMarraine} />
       </div>
     </div>
   );
