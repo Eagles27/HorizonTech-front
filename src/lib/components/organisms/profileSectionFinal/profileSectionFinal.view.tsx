@@ -6,6 +6,7 @@ import ProfileNavButton from "../../atoms/profileNavButton";
 import AvatarPresentation from "../../molecules/avatarPresentation";
 import ProfileInformationsModel from "../profileInformations/profileInformations.model";
 import ProfileTrouveTaMarraineModel from "../profileTrouveTaMarraine/profileTrouveTaMarraine.model";
+import ProfileWaitingContactModel from "../profileWaitingContact/profileWaitingContact.model";
 
 interface ProfileSectionFinalViewProps {
   user: TUser;
@@ -94,6 +95,7 @@ const ProfileSectionFinalView: React.FC<ProfileSectionFinalViewProps> = ({
           backgroundColor: "#FFF",
           boxShadow: " 0px 1px 5px 0px rgba(0, 0, 0, 0.20)",
           minHeight: "80vh",
+          maxHeight: "80vh",
           width: "80%",
         }}
       >
@@ -103,6 +105,8 @@ const ProfileSectionFinalView: React.FC<ProfileSectionFinalViewProps> = ({
               return <ProfileInformationsModel />;
             case "Trouve ta marraine":
               return <ProfileTrouveTaMarraineModel />;
+            case "Demande en attente":
+              return <ProfileWaitingContactModel />;
             default:
               return <WorkInProgressIcon />;
           }
