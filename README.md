@@ -1,3 +1,25 @@
+# HorizonTech - Plateforme d'Encouragement pour les Carrières Scientifiques
+
+Bienvenue sur le référentiel GitHub d'HorizonTech - Frontend.
+
+## Configuration du Projet
+
+- Clonez le référentiel localement : git clone https://github.com/VotreNom/HorizonTech-Frontend.git
+- Accédez au répertoire du frontend : cd HorizonTech-Frontend
+- Installez les dépendances : npm install
+
+## Exécution de l'Application
+
+- Pour démarrer l'application, utilisez la commande : npm start
+- L'application sera accessible à l'adresse : http://localhost:3000
+
+## Fonctionnalités Principales
+
+- Interface utilisateur pour la création de profils et la navigation
+- Plateforme de mise en relation entre filleules et marraines
+- Messagerie instantanée pour des conseils personnalisés
+- Métier-Pédia
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
