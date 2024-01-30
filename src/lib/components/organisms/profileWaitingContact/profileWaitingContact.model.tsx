@@ -1,34 +1,22 @@
 import ProfileWaitingContactView from "./profileWaitingContact.view";
+import { TRootState, useAppDispatch } from "../../../../store/store";
+import { useEffect } from "react";
+import { getWaitingContacts } from "../../../../store/userSlice";
+import { useSelector } from "react-redux";
 
 const ProfileWaitingContactModel: React.FC = () => {
-  const tempData = [
-    {
-      lastname: "Dupont",
-      firstname: "Marie",
-    },
-    {
-      lastname: "Dupont",
-      firstname: "Marie",
-    },
-    {
-      lastname: "Dupont",
-      firstname: "Marie",
-    },
-    {
-      lastname: "Dupont",
-      firstname: "Marie",
-    },
-    {
-      lastname: "Dupont",
-      firstname: "Marie",
-    },
-    {
-      lastname: "Dupont",
-      firstname: "Marie",
-    },
-  ];
+  const dispatch = useAppDispatch();
+  const token = useSelector((state: TRootState) => state.userSlice.token);
+  const waitingContacts = useSelector(
+    (state: TRootState) => state.userSlice.waitingContacts,
+  );
 
-  return <ProfileWaitingContactView tempData={tempData} />;
+  useEffect(() => {
+    dispatch(getWaitingContacts(token));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
+
+  return <ProfileWaitingContactView waitingContact={waitingContacts} />;
 };
 
 export default ProfileWaitingContactModel;

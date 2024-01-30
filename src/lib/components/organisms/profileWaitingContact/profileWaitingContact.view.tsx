@@ -1,16 +1,41 @@
+import { TUsers } from "../../../../types/user";
+import ClockIcon from "../../../icons/clockIcon";
 import WaitingContactCard from "../../molecules/waitingContactCard";
 
 interface ProfileWaitingContactViewProps {
-  tempData: {
-    lastname: string;
-    firstname: string;
-  }[];
+  waitingContact: TUsers | null;
 }
 
 const ProfileWaitingContactView: React.FC<ProfileWaitingContactViewProps> = ({
-  tempData,
+  waitingContact,
 }) => {
-  return (
+  return waitingContact?.length === 0 ? (
+    <div
+      className="errorContent"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "20px",
+      }}
+    >
+      <ClockIcon />
+      <h2
+        style={{
+          margin: 0,
+          width: "60%",
+          color: "#FF5B22",
+          fontSize: "1.2vw",
+          fontWeight: 600,
+          textAlign: "center",
+        }}
+      >
+        Vous n'avez pas encore de demande de contact en attente, ca ne saurait
+        tarder !
+      </h2>
+    </div>
+  ) : (
     <div
       style={{
         height: "100%",
@@ -25,8 +50,9 @@ const ProfileWaitingContactView: React.FC<ProfileWaitingContactViewProps> = ({
         padding: "2%",
       }}
     >
-      {tempData.map((data) => (
+      {waitingContact?.map((contact) => (
         <div
+          key={contact._id}
           className="cardContainer"
           style={{
             display: "flex",
@@ -35,8 +61,8 @@ const ProfileWaitingContactView: React.FC<ProfileWaitingContactViewProps> = ({
           }}
         >
           <WaitingContactCard
-            firstname={data.firstname}
-            lastname={data.lastname}
+            firstname={contact.firstname}
+            lastname={contact.lastname}
           />
         </div>
       ))}

@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 export interface IUserState {
   user: TUser | null;
   marraineAvailable: TUsers | null;
+  waitingContacts: TUsers | null;
   token: string;
   isAuth: boolean;
   loading: boolean;
@@ -25,6 +26,7 @@ export interface IUserState {
 const initialState: IUserState = {
   user: null,
   marraineAvailable: null,
+  waitingContacts: null,
   token: "",
   isAuth: false,
   loading: false,
@@ -134,12 +136,35 @@ export const matchMarraine = createAsyncThunk<
   }
 });
 
+export const getWaitingContacts = createAsyncThunk<
+  TUsers,
+  string,
+  { rejectValue: TError<TApiError> }
+>("user/getWaitingContacts", async (authorization, { rejectWithValue }) => {
+  try {
+    const response = await httpClient.get<TUsers>("/user/waiting_contacts", {
+      headers: {
+        Authorization: `Bearer ${authorization}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    const err = error as AxiosError<TApiError>;
+    return rejectWithValue({
+      data: err.response?.data,
+      status: err.response?.status,
+    });
+  }
+});
+
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
     disconnectUser: (state) => {
       state.user = null;
+      state.marraineAvailable = null;
+      state.waitingContacts = null;
       state.token = "";
       state.isAuth = false;
       toast.success("Vous êtes bien déconnecté(e)");
@@ -224,6 +249,21 @@ export const userSlice = createSlice({
       state.loading = false;
       state.error = true;
       toast.error("Une erreur est survenue veuillez réessayer plus tard...");
+    });
+    builder.addCase(getWaitingContacts.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getWaitingContacts.fulfilled, (state, action) => {
+      state.loading = false;
+      state.waitingContacts = action.payload;
+      state.error = false;
+    });
+    builder.addCase(getWaitingContacts.rejected, (state) => {
+      state.loading = false;
+      state.error = true;
+      toast.error(
+        "Impossible de récupérer les contacts en attente une erreur est survenue veuillez réessayer plus tard...",
+      );
     });
   },
 });
