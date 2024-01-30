@@ -22,6 +22,18 @@ La plateforme "HorizonTech" répond à un besoin pressant de promouvoir les carr
 - Messagerie instantanée pour des conseils personnalisés
 - Métier-Pédia
 
+## Choix technologiques
+
+En termes de langage de programmation, nous avons opté pour TypeScript. Pour le développement front-end, notre choix s'est orienté vers ReactJS, boosté par Vite en tant que librairie avancée.
+
+## Structure du code
+
+Pour la structuration du code, le développement de notre solution reposera sur une approche efficiente, favorisant la réutilisation de composants atomiques, moléculaires et organiques, assurant ainsi une cohérence et une maintenabilité accrues tout au long du processus de conception. Les composants atomiques pourront être des cartes ou des boutons, situés dans le dossier “/composants/atoms”. Les composants moléculaires regrouperont plusieurs composants atomiques et seront dans le dossier “/composants/molecules”. Les composants organiques contiendront des éléments molécules dans le dossier “/composants/organisms”.
+
+## MVP
+
+Pour construire cette plaforme nous avons d'abord réalisé une [maquette sur Figma](https://www.figma.com/file/VV0BEJh4jwQf1BppeBbB5K/Wireframe-HorizonTech?type=design&node-id=0-1&mode=design&t=1Fn8McvCqCWK1TxT-0).
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
