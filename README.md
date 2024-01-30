@@ -2,7 +2,7 @@
 
 Bienvenue sur le référentiel GitHub d'HorizonTech - Frontend.
 
-La plateforme "HorizonTech" répond à un besoin pressant de promouvoir les carrières scientifiques et technologiques auprès des jeunes femmes en France. Malgré des avancées encourageantes, les disparités persistent, notamment avec seulement 22,22% d'étudiantes à l'ECE. Cette solution web vise à informer, inspirer et connecter les jeunes filles avec des modèles professionnels féminins, appelées "marraines". La plateforme offre des échanges instantanés, distinguant son approche des forums traditionnels. Ciblant un public de 14 à 70 ans, le projet prévoit le développement de maquettes et de la plateforme, avec le soutien potentiel de l'association "Elles Bougent". L'accent est mis sur l'innovation au service des associations existantes, excluant actuellement un partenariat direct avec "Elles Bougent", mais ouvrant la voie à une collaboration future. En somme, "HorizonTech" offre des fonctionnalités clés telles que la consultation de métiers, la recherche de marraines et les discussions interactives.
+La plateforme "**HorizonTech**" répond à un besoin pressant de promouvoir les carrières scientifiques et technologiques auprès des jeunes femmes en France. Malgré des avancées encourageantes, les disparités persistent, notamment avec **seulement 22,22% d'étudiantes à l'ECE**. Cette solution web vise à **informer, inspirer et connecter** les jeunes filles avec des modèles professionnels féminins, appelées "marraines". La plateforme offre des échanges instantanés, distinguant son approche des forums traditionnels. Ciblant un public de 14 à 70 ans, le projet prévoit le développement de maquettes et de la plateforme, avec le soutien potentiel de l'association "**Elles Bougent**". L'accent est mis sur l'innovation au service des associations existantes, excluant actuellement un partenariat direct avec "Elles Bougent", mais ouvrant la voie à une collaboration future. En somme, "HorizonTech" offre des fonctionnalités clés telles que la **consultation de métiers, la recherche de marraines et les discussions interactives**.
 
 ## Configuration du Projet
 
@@ -24,11 +24,11 @@ La plateforme "HorizonTech" répond à un besoin pressant de promouvoir les carr
 
 ## Choix technologiques
 
-En termes de langage de programmation, nous avons opté pour TypeScript. Pour le développement front-end, notre choix s'est orienté vers ReactJS, boosté par Vite en tant que librairie avancée.
+En termes de langage de programmation, nous avons opté pour **TypeScript**. Pour le développement front-end, notre choix s'est orienté vers **ReactJS**, boosté par **Vite** en tant que librairie avancée.
 
 ## Structure du code
 
-Pour la structuration du code, le développement de notre solution reposera sur une approche efficiente, favorisant la réutilisation de composants atomiques, moléculaires et organiques, assurant ainsi une cohérence et une maintenabilité accrues tout au long du processus de conception. Les composants atomiques pourront être des cartes ou des boutons, situés dans le dossier “/composants/atoms”. Les composants moléculaires regrouperont plusieurs composants atomiques et seront dans le dossier “/composants/molecules”. Les composants organiques contiendront des éléments molécules dans le dossier “/composants/organisms”.
+Pour la structuration du code, le développement de notre solution reposera sur une approche efficiente, favorisant la réutilisation de **composants atomiques, moléculaires et organiques**, assurant ainsi une cohérence et une maintenabilité accrues tout au long du processus de conception. Les composants atomiques pourront être des cartes ou des boutons, situés dans le dossier “/composants/atoms”. Les composants moléculaires regrouperont plusieurs composants atomiques et seront dans le dossier “/composants/molecules”. Les composants organiques contiendront des éléments molécules dans le dossier “/composants/organisms”.
 
 ## Minimum Viable Product (MVP)
 
