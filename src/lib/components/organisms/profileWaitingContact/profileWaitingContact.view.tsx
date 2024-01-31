@@ -65,6 +65,8 @@ const ProfileWaitingContactView: React.FC<ProfileWaitingContactViewProps> = ({
           <WaitingContactCard
             firstname={contact.firstname}
             lastname={contact.lastname}
+            studyLevel={contact.formAnswer?.responses[0].response}
+            dreamJob={contact.formAnswer?.responses[1].response}
             onClick={() => handleAcceptContact(contact._id)}
           />
         </div>

@@ -13,8 +13,8 @@ interface WaitingContactCardProps {
 const WaitingContactCard: React.FC<WaitingContactCardProps> = ({
   firstname,
   lastname,
-  studyLevel = "Etudiante universitaire",
-  dreamJob = "Santé",
+  studyLevel = "",
+  dreamJob = "",
   imageUrl = "/avatarImage.png",
   onClick,
 }) => {
