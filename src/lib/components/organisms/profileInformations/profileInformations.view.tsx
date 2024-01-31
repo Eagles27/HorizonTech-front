@@ -55,9 +55,7 @@ const ProfileInformationsView: React.FC<ProfileInformationsViewProps> = ({
       >
         <SimpleInformationCard
           title={titles[titles.length - 1]}
-          description={
-            formAnswer.responses[formAnswer.responses.length - 1].response
-          }
+          description={formAnswer?.responses.slice(-1)[0]?.response}
         />
       </div>
     </div>
