@@ -8,7 +8,6 @@ import TitleCard from "../../atoms/titleCard";
 import AvatarPresentation from "../../molecules/avatarPresentation";
 
 interface ProfileTrouveTaMarraineViewProps {
-  tempData: string[];
   marraine: TUser | null;
   handleNextMarraine: () => void;
   handleAddMarraine: () => void;
@@ -18,7 +17,6 @@ interface ProfileTrouveTaMarraineViewProps {
 const ProfileTrouveTaMarraineView: React.FC<
   ProfileTrouveTaMarraineViewProps
 > = ({
-  tempData,
   marraine,
   handleNextMarraine,
   handleAddMarraine,
@@ -88,9 +86,11 @@ const ProfileTrouveTaMarraineView: React.FC<
           gap: "20px",
         }}
       >
-        {tempData.map((data, index) => (
-          <TitleCard key={index} title={data} />
-        ))}
+        {marraine.formAnswer?.responses
+          .slice(1, 4)
+          .map((data, index) => (
+            <TitleCard key={index} title={data.response} />
+          ))}
       </div>
       <div
         className="buttonContainer"

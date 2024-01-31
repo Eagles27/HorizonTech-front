@@ -16,11 +16,6 @@ const ProfileTrouveTaMarraineModel: React.FC = () => {
   const marraineAvailable = useSelector(
     (state: TRootState) => state.userSlice.marraineAvailable,
   );
-  const tempData = [
-    "Santé",
-    "Loisirs créatifs (arts,musiques…)",
-    " Culturelle : visites de musées, sites historiques",
-  ];
 
   const handleRefreshMarraine = () => {
     dispatch(getMarraineAvailable(token));
@@ -50,7 +45,6 @@ const ProfileTrouveTaMarraineModel: React.FC = () => {
 
   return (
     <ProfileTrouveTaMarraineView
-      tempData={tempData}
       marraine={marraineAvailable?.[marraineIndex] ?? null}
       handleNextMarraine={handleNextMarraine}
       handleAddMarraine={handleAddMarraine}
