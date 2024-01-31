@@ -157,6 +157,34 @@ export const getWaitingContacts = createAsyncThunk<
   }
 });
 
+export const postAcceptContact = createAsyncThunk<
+  TUserContacts,
+  { body: TUserPostMatchBody; headerValue: string | undefined },
+  { rejectValue: TError<TApiError> }
+>(
+  "user/postAcceptContact",
+  async ({ body, headerValue }, { rejectWithValue }) => {
+    try {
+      const response = await httpClient.post<TUserContacts>(
+        "/user/accept_invitation",
+        body,
+        {
+          headers: {
+            Authorization: `Bearer ${headerValue}`,
+          },
+        },
+      );
+      return response.data;
+    } catch (error) {
+      const err = error as AxiosError<TApiError>;
+      return rejectWithValue({
+        data: err.response?.data,
+        status: err.response?.status,
+      });
+    }
+  },
+);
+
 export const userSlice = createSlice({
   name: "user",
   initialState,
@@ -264,6 +292,27 @@ export const userSlice = createSlice({
       toast.error(
         "Impossible de récupérer les contacts en attente une erreur est survenue veuillez réessayer plus tard...",
       );
+    });
+    builder.addCase(postAcceptContact.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(postAcceptContact.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = false;
+      if (state.user) {
+        state.user.contacts = [
+          ...(state.user.contacts || []),
+          ...action.payload,
+        ];
+      }
+      toast.success(
+        "Rendez-vous dans la section mes discussions pour commencer à discuter !",
+      );
+    });
+    builder.addCase(postAcceptContact.rejected, (state) => {
+      state.loading = false;
+      state.error = true;
+      toast.error("Une erreur est survenue veuillez réessayer plus tard...");
     });
   },
 });

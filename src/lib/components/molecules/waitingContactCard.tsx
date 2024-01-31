@@ -7,6 +7,7 @@ interface WaitingContactCardProps {
   studyLevel?: string;
   dreamJob?: string;
   imageUrl?: string;
+  onClick: () => void;
 }
 
 const WaitingContactCard: React.FC<WaitingContactCardProps> = ({
@@ -15,6 +16,7 @@ const WaitingContactCard: React.FC<WaitingContactCardProps> = ({
   studyLevel = "Etudiante universitaire",
   dreamJob = "Santé",
   imageUrl = "/avatarImage.png",
+  onClick,
 }) => {
   return (
     <div
@@ -55,7 +57,7 @@ const WaitingContactCard: React.FC<WaitingContactCardProps> = ({
       <ButtonWithIcon
         text="Commencer à discuter"
         icon={<ArrowRightIcon />}
-        onClick={() => {}}
+        onClick={onClick}
       />
     </div>
   );

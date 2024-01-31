@@ -4,10 +4,12 @@ import WaitingContactCard from "../../molecules/waitingContactCard";
 
 interface ProfileWaitingContactViewProps {
   waitingContact: TUsers | null;
+  handleAcceptContact: (id: string) => void;
 }
 
 const ProfileWaitingContactView: React.FC<ProfileWaitingContactViewProps> = ({
   waitingContact,
+  handleAcceptContact,
 }) => {
   return waitingContact?.length === 0 ? (
     <div
@@ -63,6 +65,7 @@ const ProfileWaitingContactView: React.FC<ProfileWaitingContactViewProps> = ({
           <WaitingContactCard
             firstname={contact.firstname}
             lastname={contact.lastname}
+            onClick={() => handleAcceptContact(contact._id)}
           />
         </div>
       ))}
