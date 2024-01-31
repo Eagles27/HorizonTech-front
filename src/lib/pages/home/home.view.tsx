@@ -34,10 +34,6 @@ const HomeView: React.FC = () => {
         className="imgAccueilContainer"
         style={{
           height: "90%",
-          backgroundColor: "#FECDA6",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "left",
         }}
       >
         <BanerHome />
@@ -46,25 +42,25 @@ const HomeView: React.FC = () => {
         id="QuiSommesNous"
         className="QuisommesnousContainer"
         style={{
-          minHeight: "40%",
+          minHeight: "60%",
+          width: "100%",
           backgroundColor: "#FFFFFF",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          textAlign: "center",
-          width: 600,
-          margin: "50px auto",
+          justifyContent: "center",
         }}
       >
         <TitleAccueil title="Qui sommes-nous ?" />
         <p
           style={{
-            fontSize: "15px",
+            fontSize: "1.1vw",
             fontStyle: "normal",
             fontWeight: 400,
             lineHeight: "normal",
             color: "rgba(0, 0, 0, 0.65)",
             textAlign: "center",
+            width: "50%",
           }}
         >
           Horizon Tech est une initiative passionnée qui s'engage à briser les
@@ -161,6 +157,7 @@ const HomeView: React.FC = () => {
           {teamMembers.map((member, index) => (
             <TeamCard
               key={index}
+              avatar={member.avatar}
               name={member.name}
               description={member.description}
               alignRight={member.alignRight}

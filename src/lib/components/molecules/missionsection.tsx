@@ -1,4 +1,12 @@
-const MissionSection: React.FC = () => {
+import TargetIcon from "../../icons/targetIcon";
+
+interface ImissionSectionProps {
+  image?: React.ReactNode;
+}
+
+const MissionSection: React.FC<ImissionSectionProps> = ({
+  image = <TargetIcon />,
+}) => {
   return (
     <div
       className="ContentContainer"
@@ -16,6 +24,7 @@ const MissionSection: React.FC = () => {
           width: "60%",
           color: "#000000A6",
           textAlign: "justify",
+          fontSize: "1.1vw",
         }}
       >
         <p>
@@ -47,11 +56,7 @@ const MissionSection: React.FC = () => {
         </p>
       </div>
       <div className="imageContainer" style={{}}>
-        <img
-          src="target.png"
-          alt="Cible de mission"
-          style={{ width: "100%" }}
-        />
+        {image}
       </div>
     </div>
   );

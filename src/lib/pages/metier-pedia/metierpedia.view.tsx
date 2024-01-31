@@ -3,9 +3,14 @@ import TitleAccueil from "../../components/atoms/titleAccueil";
 import Footer from "../../components/molecules/footer";
 import Header from "../../components/molecules/header";
 import TextInput from "../../components/atoms/textInput";
-import MetierCard from "../../components/molecules/metierCard";
-import ButtonAndIconButton from "../../components/atoms/buttonAndIcon";
-import ArrowBottomIcon from "../../icons/arrowbottomIcon";
+
+import MetierPediaCard from "../../components/molecules/metierPediaCard";
+import ButtonWithIcon from "../../components/atoms/buttonWithIcon";
+import ArrowDownIcon from "../../icons/arrowDownIcon";
+
+// Retirer l'improt ci-dessous une fois le back en place
+import metierPediaTemp from "../../../utils/metierPediaTemp.json";
+
 
 const MetierPediaView: React.FC = () => {
   return (
@@ -38,7 +43,16 @@ const MetierPediaView: React.FC = () => {
         }}
       >
         <TitleAccueil title="Découvrir mon futur métier" />
-        <p style={{ color: "#000000BF", textAlign: "center", width: "63%" }}>
+
+        <p
+          style={{
+            color: "#000000BF",
+            textAlign: "center",
+            width: "60%",
+            fontSize: "1.1vw",
+          }}
+        >
+
           Notre métier pédia fonctionne comme une bibliothèque virtuelle,
           regorgeant de fiches métier exhaustives. Son objectif est de vous
           aider à explorer et comprendre le paysage professionnel d’aujourd’hui.
@@ -51,96 +65,64 @@ const MetierPediaView: React.FC = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          margin: "30px 100px",
+
+          justifyContent: "center",
+          margin: "30px 0",
           gap: "20px",
         }}
       >
         <TextInput
           placeholder="Le métier que je recherche..."
+
+          width="60%"
           onInputChange={() => {}}
         />
-        <div className="ButtonContainer" style={{ width: "20%" }}>
+        <div
+          className="ButtonContainer"
+          style={{ width: "20%", height: "100%" }}
+        >
           <SimpleButton text="Rechercher" padding="8px 0" />
         </div>
       </div>
       <div
-        className="jobCardContainer"
+
+        className="gridSection"
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr 1fr",
-          padding: "2% 0",
-          alignItems: "center",
-          maxWidth: "90%",
-          margin: "0 auto",
+          gridTemplateRows: "1fr 1fr",
+          gap: "20px",
         }}
       >
-        {/* Insérer un mapping de la card métier qui est à faire */}
-        <MetierCard
-          image={
-            <img
-              src="doctorImg.png"
-              alt="Métier de médecin "
-              style={{ width: "100%" }}
-            />
-          }
-          title="Médecin"
-          description="Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies."
-          button
-        />
-
-        <MetierCard
-          image={
-            <img
-              src="doctorImg.png"
-              alt="Métier de médecin "
-              style={{ width: "100%" }}
-            />
-          }
-          title="Médecin"
-          description="Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies."
-          button
-        />
-
-        <MetierCard
-          image={
-            <img
-              src="doctorImg.png"
-              alt="Métier de médecin "
-              style={{ width: "100%" }}
-            />
-          }
-          title="Médecin"
-          description="Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies."
-          button
-        />
-        <MetierCard
-          image={
-            <img
-              src="doctorImg.png"
-              alt="Métier de médecin "
-              style={{ width: "100%" }}
-            />
-          }
-          title="Médecin"
-          description="Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies."
-          button
-        />
+        {metierPediaTemp.map((metier) => (
+          <MetierPediaCard
+            key={metier.id}
+            image={metier.image}
+            title={metier.title}
+            description={metier.description}
+            id={metier.id}
+          />
+        ))}
       </div>
       <div
-        className="buttonNextContainer"
-        style={{ width: "8%", background: "#FFFFFF", margin: "0 auto" }}
+        className="buttonContainer"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "30px 0",
+          width: "100%",
+        }}
       >
-        <ButtonAndIconButton
+        <ButtonWithIcon
           text="Voir plus"
-          padding="8px 0"
-          color="#FFFFFF"
-          textColor="#FF5B22"
-          hoverColor="#FFA500"
-          borderColor="##FF5B22"
-          image={<ArrowBottomIcon />}
+          icon={<ArrowDownIcon />}
+          color="white"
+          border="1px solid #FF5B22"
+          fontColor="#FF5B22"
+          width="20%"
         />
       </div>
-
       <div
         className="footerContainer"
         style={{ width: "100%", height: "30%", paddingTop: "40px" }}
