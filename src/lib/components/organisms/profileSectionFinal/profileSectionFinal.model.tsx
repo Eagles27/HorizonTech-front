@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TUser } from "../../../../types/user";
 import ProfileSectionFinalView from "./profileSectionFinal.view";
-import { useAppDispatch } from "../../../../store/store";
+import { TRootState, useAppDispatch } from "../../../../store/store";
 import { disconnectUser } from "../../../../store/userSlice";
 import { useNavigate } from "react-router-dom";
-import { resetFormAnswer } from "../../../../store/formAnswerSlice";
+import {
+  getFormAnswerById,
+  resetFormAnswer,
+} from "../../../../store/formAnswerSlice";
+import { useSelector } from "react-redux";
 
 interface ProfileSectionFinalModelProps {
   user: TUser;
@@ -15,6 +19,7 @@ const ProfileSectionFinalModel: React.FC<ProfileSectionFinalModelProps> = ({
 }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const token = useSelector((state: TRootState) => state.userSlice.token);
 
   const linksTitle =
     user.role === "Etudiante"
@@ -38,6 +43,10 @@ const ProfileSectionFinalModel: React.FC<ProfileSectionFinalModelProps> = ({
     dispatch(disconnectUser());
     navigate("/");
   };
+
+  useEffect(() => {
+    dispatch(getFormAnswerById({ id: user._id, headerValue: token }));
+  }, [dispatch, user, token]);
 
   return (
     <ProfileSectionFinalView

@@ -1,30 +1,19 @@
+import { useSelector } from "react-redux";
+import { TRootState } from "../../../../store/store";
 import ProfileInformationsView from "./profileInformations.view";
 
 const ProfileInformationsModel: React.FC = () => {
-  const tempInformation = [
-    {
-      title: "Niveau d'étude",
-      description: "Etudiante universitaire",
-    },
-    {
-      title: "Secteur",
-      description: "Santé",
-    },
-    {
-      title: "Activité de loisir",
-      description: "Loisirs créatifs (arts,musiques…)",
-    },
-    {
-      title: "Type de voyage",
-      description:
-        " Culturelle : visites de musées, sites historiques, monuments, etc.",
-    },
-    {
-      title: "Activité bénévoles ou engagement sociaux",
-      description: "Non, pas actuellement impliquée",
-    },
+  const formAnswer = useSelector(
+    (state: TRootState) => state.formAnswerSlice.formAnswer,
+  );
+  const titles = [
+    "Niveau d'étude",
+    "Secteur",
+    "Activité de loisir",
+    "Type de voyage",
+    "Activité bénévoles ou engagement sociaux",
   ];
-  return <ProfileInformationsView tempInformations={tempInformation} />;
+  return <ProfileInformationsView formAnswer={formAnswer} titles={titles} />;
 };
 
 export default ProfileInformationsModel;

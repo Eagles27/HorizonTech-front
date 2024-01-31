@@ -1,14 +1,14 @@
+import { TFormAnswers } from "../../../../types/formAnswer";
 import SimpleInformationCard from "../../atoms/simpleInformationCard";
 
 interface ProfileInformationsViewProps {
-  tempInformations: {
-    title: string;
-    description: string;
-  }[];
+  formAnswer: TFormAnswers;
+  titles: string[];
 }
 
 const ProfileInformationsView: React.FC<ProfileInformationsViewProps> = ({
-  tempInformations,
+  formAnswer,
+  titles,
 }) => {
   return (
     <div
@@ -36,11 +36,11 @@ const ProfileInformationsView: React.FC<ProfileInformationsViewProps> = ({
           padding: "2%",
         }}
       >
-        {tempInformations.slice(0, -1).map((information, index) => (
+        {formAnswer.responses.slice(0, -1).map((information, index) => (
           <SimpleInformationCard
             key={index}
-            title={information.title}
-            description={information.description}
+            title={titles[index]}
+            description={information.response}
           />
         ))}
       </div>
@@ -54,9 +54,9 @@ const ProfileInformationsView: React.FC<ProfileInformationsViewProps> = ({
         }}
       >
         <SimpleInformationCard
-          title={tempInformations[tempInformations.length - 1].title}
+          title={titles[titles.length - 1]}
           description={
-            tempInformations[tempInformations.length - 1].description
+            formAnswer.responses[formAnswer.responses.length - 1].response
           }
         />
       </div>
