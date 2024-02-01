@@ -5,6 +5,7 @@ import ButtonWithIcon from "../../atoms/buttonWithIcon";
 import ProfileNavButton from "../../atoms/profileNavButton";
 import AvatarPresentation from "../../molecules/avatarPresentation";
 import ProfileInformationsModel from "../profileInformations/profileInformations.model";
+import ProfileMesDiscussionsModel from "../profileMesDiscussions/profileMesDiscussions.model";
 import ProfileTrouveTaMarraineModel from "../profileTrouveTaMarraine/profileTrouveTaMarraine.model";
 import ProfileWaitingContactModel from "../profileWaitingContact/profileWaitingContact.model";
 
@@ -107,6 +108,8 @@ const ProfileSectionFinalView: React.FC<ProfileSectionFinalViewProps> = ({
               return <ProfileTrouveTaMarraineModel />;
             case "Demande en attente":
               return <ProfileWaitingContactModel />;
+            case "Mes discussions":
+              return <ProfileMesDiscussionsModel />;
             default:
               return <WorkInProgressIcon />;
           }
