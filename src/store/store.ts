@@ -13,6 +13,8 @@ import {
 } from "redux-persist";
 
 import userSlice from "./userSlice";
+import formSubjectSlice from "./formSubjectSlice";
+import formAnswerSlice from "./formAnswerSlice";
 
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 
@@ -21,7 +23,11 @@ const persistConfig = {
   storage,
 };
 
-const rootReducer = combineReducers({ userSlice });
+const rootReducer = combineReducers({
+  userSlice,
+  formSubjectSlice,
+  formAnswerSlice,
+});
 
 export type TRootState = ReturnType<typeof rootReducer>;
 export type TAppDispatch = typeof store.dispatch;

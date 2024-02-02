@@ -1,10 +1,16 @@
 interface CheckBoxProps {
   text: string;
   checked: boolean;
+  labelSize?: string;
   onChange: () => void;
 }
 
-const CheckBox: React.FC<CheckBoxProps> = ({ text, checked, onChange }) => {
+const CheckBox: React.FC<CheckBoxProps> = ({
+  text,
+  checked,
+  labelSize = "12px",
+  onChange,
+}) => {
   const containerStyles = {
     //aligner texte et checkbox
     display: "flex",
@@ -14,7 +20,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({ text, checked, onChange }) => {
 
   const labelStyles = {
     fontFamily: "Inter",
-    fontSize: "12px",
+    fontSize: labelSize,
     fontStyle: "normal",
     fontWeight: 500,
     lineHeight: "normal",

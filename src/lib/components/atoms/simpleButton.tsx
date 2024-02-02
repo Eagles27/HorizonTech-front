@@ -6,6 +6,7 @@ interface ButtonProps {
   padding?: string;
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
+  width?: string;
 }
 
 const SimpleButton: React.FC<ButtonProps> = ({
@@ -14,6 +15,7 @@ const SimpleButton: React.FC<ButtonProps> = ({
   color = "#FF5B22",
   padding = "8px 12px",
   type = "button",
+  width = "100%",
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -33,7 +35,7 @@ const SimpleButton: React.FC<ButtonProps> = ({
     lineHeight: "150%",
     letterSpacing: "-0.12px",
     transition: "background 0.3s ease",
-    width: "100%",
+    width,
   };
 
   const buttonBackground = isHovered ? "#272727" : color;

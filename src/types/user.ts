@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { FORM_ANSWERS } from "./formAnswer";
 
 const USER_POST_BODY = z.object({
   role: z.enum(["Etudiante", "Marraine"]),
@@ -26,12 +27,29 @@ const USER_HEADER = z.object({
   authorization: z.string(),
 });
 
+const USER_CONTACT = z.object({
+  contact_id: z.string(),
+  invitationAccepted: z.boolean(),
+  _id: z.string().optional(),
+});
+
+const USER_CONTACTS = z.array(USER_CONTACT);
+
 const USER = z.object({
   _id: z.string(),
   firstname: z.string(),
   lastname: z.string(),
   email: z.string(),
   finishedSignup: z.boolean(),
+  role: z.enum(["Etudiante", "Marraine"]),
+  contacts: z.optional(z.array(USER_CONTACT)),
+  formAnswer: z.optional(FORM_ANSWERS),
+});
+
+const USERS = z.array(USER);
+
+const USER_POST_MATCH_BODY = z.object({
+  contact_id: z.string(),
 });
 
 export type TUserPostBody = z.infer<typeof USER_POST_BODY>;
@@ -40,6 +58,10 @@ export type TUserLoginResponse = z.infer<typeof USER_LOGIN_RESPONSE>;
 export type TUserId = z.infer<typeof USER_ID>;
 export type TUserHeader = z.infer<typeof USER_HEADER>;
 export type TUser = z.infer<typeof USER>;
+export type TUsers = z.infer<typeof USERS>;
+export type TUserContact = z.infer<typeof USER_CONTACT>;
+export type TUserPostMatchBody = z.infer<typeof USER_POST_MATCH_BODY>;
+export type TUserContacts = z.infer<typeof USER_CONTACTS>;
 
 export {
   USER_POST_BODY,
@@ -48,4 +70,8 @@ export {
   USER_LOGIN_RESPONSE,
   USER_ID,
   USER_HEADER,
+  USERS,
+  USER_CONTACT,
+  USER_POST_MATCH_BODY,
+  USER_CONTACTS,
 };

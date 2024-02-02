@@ -15,7 +15,7 @@ const ProfileModel: React.FC = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
-  return <ProfileView />;
+  return <ProfileView user={user} />;
 };
 
 export default ProfileModel;
