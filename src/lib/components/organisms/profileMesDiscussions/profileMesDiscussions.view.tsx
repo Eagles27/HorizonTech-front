@@ -1,19 +1,15 @@
+import { TUsers } from "../../../../types/user";
 import ClockIcon from "../../../icons/clockIcon";
 import DiscussionCard from "../../molecules/discussionCard";
 
 interface ProfileMesDiscussionsViewProps {
-  tempData: {
-    firstname: string;
-    lastname: string;
-    role: string;
-    dreamJob: string;
-  }[];
+  contacts: TUsers | null;
 }
 
 const ProfileMesDiscussionsView: React.FC<ProfileMesDiscussionsViewProps> = ({
-  tempData,
+  contacts,
 }) => {
-  return tempData?.length === 0 ? (
+  return contacts?.length === 0 || contacts === null ? (
     <div
       className="errorContent"
       style={{
@@ -54,9 +50,9 @@ const ProfileMesDiscussionsView: React.FC<ProfileMesDiscussionsViewProps> = ({
         padding: "3%",
       }}
     >
-      {tempData?.map((contact) => (
+      {contacts?.map((contact) => (
         <div
-          key={contact.firstname}
+          key={contact._id}
           className="cardContainer"
           style={{
             width: "80%",
@@ -67,8 +63,9 @@ const ProfileMesDiscussionsView: React.FC<ProfileMesDiscussionsViewProps> = ({
           <DiscussionCard
             firstname={contact.firstname}
             lastname={contact.lastname}
+            email={contact.email}
             role={contact.role}
-            dreamJob={contact.dreamJob}
+            dreamJob={contact.formAnswer?.responses[1].response}
           />
         </div>
       ))}

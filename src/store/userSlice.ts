@@ -17,6 +17,7 @@ export interface IUserState {
   user: TUser | null;
   marraineAvailable: TUsers | null;
   waitingContacts: TUsers | null;
+  userContacts: TUsers | null;
   token: string;
   isAuth: boolean;
   loading: boolean;
@@ -27,6 +28,7 @@ const initialState: IUserState = {
   user: null,
   marraineAvailable: null,
   waitingContacts: null,
+  userContacts: null,
   token: "",
   isAuth: false,
   loading: false,
@@ -185,6 +187,27 @@ export const postAcceptContact = createAsyncThunk<
   },
 );
 
+export const getUserContacts = createAsyncThunk<
+  TUsers,
+  string,
+  { rejectValue: TError<TApiError> }
+>("user/contacts", async (authorization, { rejectWithValue }) => {
+  try {
+    const response = await httpClient.get<TUsers>("/user/contacts", {
+      headers: {
+        Authorization: `Bearer ${authorization}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    const err = error as AxiosError<TApiError>;
+    return rejectWithValue({
+      data: err.response?.data,
+      status: err.response?.status,
+    });
+  }
+});
+
 export const userSlice = createSlice({
   name: "user",
   initialState,
@@ -194,7 +217,10 @@ export const userSlice = createSlice({
       state.marraineAvailable = null;
       state.waitingContacts = null;
       state.token = "";
+      state.userContacts = null;
       state.isAuth = false;
+      state.loading = false;
+      state.error = false;
       toast.success("Vous êtes bien déconnecté(e)");
     },
   },
@@ -313,6 +339,21 @@ export const userSlice = createSlice({
       state.loading = false;
       state.error = true;
       toast.error("Une erreur est survenue veuillez réessayer plus tard...");
+    });
+    builder.addCase(getUserContacts.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getUserContacts.fulfilled, (state, action) => {
+      state.loading = false;
+      state.userContacts = action.payload;
+      state.error = false;
+    });
+    builder.addCase(getUserContacts.rejected, (state) => {
+      state.loading = false;
+      state.error = true;
+      toast.error(
+        "Impossible de récupérer les contacts une erreur est survenue veuillez réessayer plus tard...",
+      );
     });
   },
 });

@@ -1,16 +1,21 @@
+import EmailIcon from "../../icons/emailIcon";
+import ButtonWithIcon from "../atoms/buttonWithIcon";
+
 interface DiscussionCardProps {
   firstname: string;
   lastname: string;
+  email: string;
   role: string;
-  dreamJob: string;
+  dreamJob?: string;
   avatar?: string;
 }
 
 const DiscussionCard: React.FC<DiscussionCardProps> = ({
   firstname,
   lastname,
+  email,
   role,
-  dreamJob,
+  dreamJob = "",
   avatar = "avatarImage.png",
 }) => {
   return (
@@ -18,14 +23,12 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({
       className="cardContent"
       style={{
         height: "100%",
-
         width: "100%",
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         boxShadow: "0px 4px 5px 0px rgba(0, 0, 0, 0.20)",
         boxSizing: "border-box",
-        gap: "2vw",
         padding: "1%",
       }}
     >
@@ -36,8 +39,10 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({
       />
       <div
         style={{
+          width: "80%",
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
           gap: "2vw",
           fontSize: "1.4vw",
           fontWeight: 300,
@@ -51,6 +56,23 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({
           {", "}
           {dreamJob}
         </p>
+      </div>
+      <div
+        style={{
+          width: "30%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-end",
+          boxSizing: "border-box",
+          paddingRight: "2%",
+        }}
+      >
+        <a
+          href={`mailto:${email}`}
+          style={{ width: "100%", textDecoration: "none" }}
+        >
+          <ButtonWithIcon text="Contacter" icon={<EmailIcon />} />
+        </a>
       </div>
     </div>
   );
