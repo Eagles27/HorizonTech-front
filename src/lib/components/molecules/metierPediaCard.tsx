@@ -33,6 +33,7 @@ const MetierPediaCard: React.FC<MetierPediaCardProps> = ({
           borderRadius: "5px",
           display: "flex",
           flexDirection: "column",
+          justifyContent: "space-between",
           padding: "20px",
           boxSizing: "border-box",
         }}

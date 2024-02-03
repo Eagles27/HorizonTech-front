@@ -1,38 +1,38 @@
 [
   {
-    "image": "metierPediaImage.png",
-    "title": "Médecin",
-    "description": "Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies.",
+    "image": "/metierpedia/metierChirugien.png",
+    "title": "Chirurgienne",
+    "description": "La chirurgienne réalise des opérations pour traiter des problèmes médicaux, contribuant au rétablissement des patients.",
     "id": "1"
   },
   {
-    "image": "metierPediaImage.png",
-    "title": "Médecin",
-    "description": "Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies.",
+    "image": "/metierpedia/metierAcheteuse.png",
+    "title": "Acheteuse",
+    "description": "Une acheteuse est une professionnelle spécialisée dans le domaine des achats et des approvisionnements.",
     "id": "2"
   },
   {
-    "image": "metierPediaImage.png",
+    "image": "/metierpedia/metierPediaImage.png",
     "title": "Médecin",
     "description": "Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies.",
     "id": "3"
   },
   {
-    "image": "metierPediaImage.png",
-    "title": "Médecin",
-    "description": "Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies.",
+    "image": "/metierpedia/metierIngCyber.png",
+    "title": "Ingénieure Cybersécurité",
+    "description": "L'ingénieure en cybersécurité aide à la protection des systèmes informatiques contre les menaces cybernétiques. ",
     "id": "4"
   },
   {
-    "image": "metierPediaImage.png",
-    "title": "Médecin",
-    "description": "Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies.",
+    "image": "/metierpedia/metierControlAer.png",
+    "title": "Contrôleuse Aérienne",
+    "description": "La contrôleuse aérienne, supervise et guide les avions sur les pistes et dans l'espace aérien.",
     "id": "5"
   },
   {
-    "image": "metierPediaImage.png",
-    "title": "Médecin",
-    "description": "Un médecin est un professionnel de la santé qualifié, spécialisé dans le diagnostic, le traitement et la prévention des maladies.",
+    "image": "/metierpedia/metierTechLaboratoire.png",
+    "title": "Technicienne de Laboratoire",
+    "description": "La chercheuse expérimente et contribue à l'avancement des connaissances dans son domaine scientifique. ",
     "id": "6"
   }
 ]
