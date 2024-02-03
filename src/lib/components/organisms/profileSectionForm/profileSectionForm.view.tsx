@@ -56,11 +56,13 @@ const ProfileSectionFormView: React.FC<ProfileSectionFormViewProps> = ({
       <div
         className="formSection"
         style={{
-          minHeight: "1300px",
+          minHeight: "1000px",
           backgroundColor: "#FF5B22",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          boxSizing: "border-box",
+          padding: "3%",
         }}
       >
         <FormSubject
